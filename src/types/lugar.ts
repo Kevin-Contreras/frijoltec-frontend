@@ -22,6 +22,13 @@ export interface Lugar {
   fuentes: string;
   verificadoEnCampo: boolean;
   licencia: string;
+  reportes?: Array<{
+    id: string;
+    resultado: string;
+    notas?: string;
+    fechaVisita?: string;
+    fotos?: Array<{ id: string; url: string }>;
+  }>;
 }
 
 export type ClaseControl = 'negativo' | 'industrial' | 'incierto';

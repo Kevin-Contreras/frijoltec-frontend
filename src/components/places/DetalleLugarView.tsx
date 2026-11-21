@@ -14,7 +14,7 @@ interface DetalleLugarViewProps {
 }
 
 const boton =
-  'inline-flex min-h-[56px] items-center gap-3 rounded-xl bg-marca-oscuro px-6 text-lg font-bold text-white transition-colors hover:bg-marca-oscuro-hover';
+  'inline-flex min-h-[56px] items-center gap-3 rounded-xl bg-marca-oscuro px-6 text-lg font-bold text-white shadow-sm btn-bounce hover:bg-marca-oscuro-hover';
 
 /** Pantalla "Un lugar". */
 export function DetalleLugarView({ lugar, lugares }: DetalleLugarViewProps) {
@@ -24,14 +24,14 @@ export function DetalleLugarView({ lugar, lugares }: DetalleLugarViewProps) {
     <div className="w-full flex-1 bg-marca-fondo">
       <div className="max-w-6xl mx-auto grid grid-cols-1 gap-10 px-4 py-10 font-marca sm:px-6 sm:py-14 lg:grid-cols-[1.1fr_1fr] lg:gap-12">
         {/* En celular, primero el texto y después el mapa */}
-        <div className="order-2 lg:order-1">
+        <div className="order-2 lg:order-1 animate-scale-up">
           <MapaGuatemalaZoom lugares={lugares} seleccionadoId={lugar.id} />
         </div>
 
-        <div className="order-1 flex flex-col gap-6 lg:order-2">
+        <div className="order-1 flex flex-col gap-6 lg:order-2 animate-fade-in-up">
           <Link
             href="/mapa"
-            className="inline-flex min-h-[48px] items-center gap-2 self-start text-lg font-semibold text-marca-oscuro hover:underline"
+            className="inline-flex min-h-[48px] items-center gap-2 self-start text-lg font-semibold text-marca-oscuro transition-transform hover:-translate-x-1"
           >
             <ArrowLeft className="h-5 w-5" aria-hidden="true" />
             Volver al mapa
@@ -48,13 +48,13 @@ export function DetalleLugarView({ lugar, lugares }: DetalleLugarViewProps) {
             <p className="m-0 text-xl text-texto-secundario">{lugar.departamento}</p>
           </div>
 
-          <ul className="m-0 flex list-none flex-col gap-4 rounded-[20px] border border-borde bg-superficie p-6">
+          <ul className="m-0 flex list-none flex-col gap-4 rounded-[20px] border border-borde bg-superficie p-6 shadow-sm transition-all duration-300 hover:shadow-md">
             <li className="flex gap-4 text-lg leading-relaxed text-marca-oscuro">
-              <Droplets className="mt-1 h-6 w-6 shrink-0" aria-hidden="true" />
+              <Droplets className="mt-1 h-6 w-6 shrink-0 text-principal" aria-hidden="true" />
               <span className={cerca ? 'font-bold' : ''}>{fraseAgua(lugar)}</span>
             </li>
             <li className="flex gap-4 text-lg leading-relaxed text-marca-oscuro">
-              <Users className="mt-1 h-6 w-6 shrink-0" aria-hidden="true" />
+              <Users className="mt-1 h-6 w-6 shrink-0 text-principal" aria-hidden="true" />
               <span>{frasePoblacion(lugar)}</span>
             </li>
           </ul>
@@ -72,6 +72,41 @@ export function DetalleLugarView({ lugar, lugares }: DetalleLugarViewProps) {
           </div>
 
           <SeguimientoLugar lugarId={lugar.id} />
+
+          {/* Reportes de campo verificados */}
+          {lugar.reportes && lugar.reportes.length > 0 && (
+            <div className="rounded-[20px] border border-borde bg-superficie p-6 shadow-sm">
+              <h3 className="mb-4 font-marca text-2xl font-bold text-marca-oscuro">
+                Reportes de campo ({lugar.reportes.length})
+              </h3>
+              <ul className="m-0 flex list-none flex-col gap-4 p-0">
+                {lugar.reportes.map((r) => (
+                  <li key={r.id} className="rounded-xl border border-borde p-4">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                      <span className="rounded-full bg-marca-menta px-3 py-1 text-sm font-semibold text-marca-oscuro">
+                        {r.resultado === 'hay_basura'
+                          ? 'Sí, hay basura'
+                          : r.resultado === 'no_hay_basura'
+                          ? 'No hay basura'
+                          : 'No pude entrar'}
+                      </span>
+                      {r.fechaVisita && (
+                        <span className="text-sm text-texto-secundario">{r.fechaVisita}</span>
+                      )}
+                    </div>
+                    {r.notas && <p className="m-0 text-base text-marca-oscuro">{r.notas}</p>}
+                    {r.fotos && r.fotos.length > 0 && (
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        {r.fotos.map((f) => (
+                          <img key={f.id} src={f.url} alt="" className="h-20 w-20 rounded-lg object-cover" />
+                        ))}
+                      </div>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           <MasDatosLugar lugar={lugar} />
         </div>

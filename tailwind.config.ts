@@ -48,6 +48,31 @@ const config: Config = {
         md: "12px",
         lg: "16px",
       },
+      keyframes: {
+        "float-slow": {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        "pulse-subtle": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.85" },
+        },
+        "shimmer": {
+          "0%": { transform: "translateX(-100%)" },
+          "100%": { transform: "translateX(100%)" },
+        },
+        "pop": {
+          "0%": { transform: "scale(0.95)" },
+          "50%": { transform: "scale(1.08)" },
+          "100%": { transform: "scale(1)" },
+        },
+      },
+      animation: {
+        "float-slow": "float-slow 6s ease-in-out infinite",
+        "pulse-subtle": "pulse-subtle 3s ease-in-out infinite",
+        "shimmer": "shimmer 2.5s infinite",
+        "pop": "pop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)",
+      },
     },
   },
   plugins: [],

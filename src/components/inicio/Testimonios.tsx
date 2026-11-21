@@ -1,7 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ChevronLeft, ChevronRight, UserRound } from 'lucide-react';
+import { ChevronLeft, ChevronRight, UserRound, Send } from 'lucide-react';
+import { Reveal } from '@/components/ui/Reveal';
+import { fetchComentarios, crearComentario } from '@/lib/api';
 import {
   COMENTARIOS_EJEMPLO,
   MAX_COMENTARIO,
@@ -10,17 +12,46 @@ import {
   type Comentario,
 } from '@/lib/opiniones';
 
-/** "Lo que dicen quienes usaron la app": carrusel horizontal con formulario al final. */
-export function Testimonios() {
-  const [comentarios, setComentarios] = useState<Comentario[]>(COMENTARIOS_EJEMPLO);
+interface TestimoniosProps {
+  comentariosIniciales?: Comentario[];
+}
+
+/** "Lo que dicen quienes usaron la app": carrusel horizontal con formulario al final conectado a la API. */
+export function Testimonios({ comentariosIniciales }: TestimoniosProps) {
+  const [comentarios, setComentarios] = useState<Comentario[]>(() => {
+    if (comentariosIniciales && comentariosIniciales.length > 0) {
+      return comentariosIniciales;
+    }
+    return [];
+  });
   const [texto, setTexto] = useState('');
+  const [enviando, setEnviando] = useState(false);
   const [enviado, setEnviado] = useState(false);
   const [scroll, setScroll] = useState({ inicio: 0, ancho: 1, alInicio: true, alFinal: false });
   const carrilRef = useRef<HTMLUListElement>(null);
 
-  // Los comentarios guardados solo existen en el navegador.
+  // Cargar únicamente comentarios reales del backend de producción
   useEffect(() => {
-    setComentarios([...COMENTARIOS_EJEMPLO, ...getComentarios()]);
+    let montado = true;
+    async function cargar() {
+      try {
+        const delBackend = await fetchComentarios();
+        if (montado) {
+          const formateados: Comentario[] = delBackend.map((c) => ({
+            id: c.id,
+            texto: c.texto,
+            fecha: c.creadoEn,
+          }));
+          setComentarios(formateados);
+        }
+      } catch (err) {
+        console.warn('Error cargando comentarios del backend:', err);
+      }
+    }
+    cargar();
+    return () => {
+      montado = false;
+    };
   }, []);
 
   const medir = useCallback(() => {
@@ -51,42 +82,63 @@ export function Testimonios() {
     el.scrollBy({ left: paso * direccion, behavior: 'smooth' });
   };
 
-  const enviar = (e: React.FormEvent) => {
+  const enviar = async (e: React.FormEvent) => {
     e.preventDefault();
     const limpio = texto.trim();
-    if (!limpio) return;
-    const nuevo = guardarComentario(limpio);
-    setComentarios((prev) => [...prev, nuevo]);
-    setTexto('');
-    setEnviado(true);
+    if (!limpio || enviando) return;
+
+    setEnviando(true);
+    try {
+      const res = await crearComentario(limpio);
+      const nuevo: Comentario = {
+        id: res.id,
+        texto: res.texto,
+        fecha: res.creadoEn,
+      };
+      setComentarios((prev) => [nuevo, ...prev]);
+      // También guardamos copia local
+      guardarComentario(limpio);
+      setTexto('');
+      setEnviado(true);
+    } catch (err) {
+      console.error('Error al guardar comentario en API, guardando local:', err);
+      const nuevo = guardarComentario(limpio);
+      setComentarios((prev) => [nuevo, ...prev]);
+      setTexto('');
+      setEnviado(true);
+    } finally {
+      setEnviando(false);
+    }
   };
 
   return (
     <section aria-labelledby="titulo-testimonios" className="max-w-6xl mx-auto px-4 sm:px-6 w-full font-marca">
-      <h2
-        id="titulo-testimonios"
-        className="font-marca text-3xl sm:text-4xl font-bold text-marca-oscuro tracking-normal mb-8"
-      >
-        Lo que dicen quienes usaron la app
-      </h2>
+      <Reveal animation="fade-up">
+        <h2
+          id="titulo-testimonios"
+          className="font-marca text-3xl sm:text-4xl font-bold text-marca-oscuro tracking-normal mb-8"
+        >
+          Lo que dicen quienes usaron la app
+        </h2>
+      </Reveal>
 
       <ul
         ref={carrilRef}
         onScroll={medir}
-        className="m-0 flex list-none snap-x snap-mandatory gap-5 overflow-x-auto p-0 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+        className="m-0 flex list-none snap-x snap-mandatory gap-5 overflow-x-auto p-0 pb-4 pt-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
       >
-        {comentarios.map((c) => (
+        {comentarios.map((c, i) => (
           <li
             key={c.id}
-            className="flex min-h-[300px] w-[85%] shrink-0 snap-start flex-col rounded-[20px] border border-borde bg-superficie p-6 sm:w-[400px]"
+            className="flex min-h-[300px] w-[85%] shrink-0 snap-start flex-col rounded-[20px] border border-borde bg-superficie p-6 sm:w-[400px] card-interactive hover:border-marca-verde/40"
           >
             <div className="mb-5 flex items-center gap-4">
-              <span className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-marca-menta text-marca-oscuro">
+              <span className="flex h-[50px] w-[50px] items-center justify-center rounded-full bg-marca-menta text-marca-oscuro transition-transform duration-300 hover:scale-110">
                 <UserRound className="h-6 w-6" aria-hidden="true" />
               </span>
               <span className="text-xl font-bold text-marca-oscuro">Anónimo</span>
               {c.ejemplo && (
-                <span className="ml-auto rounded-full border border-borde-fuerte px-2.5 py-0.5 text-sm font-semibold">
+                <span className="ml-auto rounded-full border border-borde-fuerte bg-fondo px-2.5 py-0.5 text-sm font-semibold">
                   Ejemplo
                 </span>
               )}
@@ -96,7 +148,7 @@ export function Testimonios() {
         ))}
 
         {/* Última tarjeta: dejar un comentario */}
-        <li className="w-[85%] shrink-0 snap-start rounded-[20px] border border-borde bg-superficie p-6 sm:w-[400px]">
+        <li className="w-[85%] shrink-0 snap-start rounded-[20px] border border-borde bg-superficie p-6 sm:w-[400px] card-interactive hover:border-marca-verde/40">
           <form onSubmit={enviar} className="flex h-full flex-col">
             <div className="mb-3 flex items-baseline justify-between">
               <label htmlFor="comentario" className="text-lg font-bold text-marca-oscuro">
@@ -115,7 +167,8 @@ export function Testimonios() {
                 setEnviado(false);
               }}
               rows={3}
-              className="mb-3 w-full resize-none rounded-xl border border-borde-fuerte p-3 text-lg focus:border-marca-oscuro"
+              placeholder="Escribe tu experiencia aquí..."
+              className="mb-3 w-full resize-none rounded-xl border border-borde-fuerte p-3 text-lg transition-all duration-200 focus:border-marca-oscuro focus:ring-2 focus:ring-marca-menta focus:outline-none"
             />
             <p className="mb-4 text-base text-texto-secundario">
               Tu comentario es anónimo. No guardamos tu nombre ni tus datos.
@@ -123,12 +176,13 @@ export function Testimonios() {
             <button
               type="submit"
               disabled={!texto.trim()}
-              className="inline-flex min-h-[56px] items-center self-start rounded-xl bg-marca-oscuro px-6 text-lg font-bold text-white transition-colors hover:bg-marca-oscuro-hover disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex min-h-[56px] items-center gap-2 self-start rounded-xl bg-marca-oscuro px-6 text-lg font-bold text-white btn-bounce hover:bg-marca-oscuro-hover disabled:cursor-not-allowed disabled:opacity-50"
             >
+              <Send className="h-4 w-4" aria-hidden="true" />
               Enviar comentario
             </button>
-            <p role="status" className="mt-3 mb-0 text-base font-semibold text-marca-oscuro">
-              {enviado ? 'Gracias. Tu comentario se guardó en este equipo.' : ''}
+            <p role="status" className="mt-3 mb-0 text-base font-semibold text-principal animate-fade-in">
+              {enviado ? '✓ Gracias. Tu comentario se guardó en este equipo.' : ''}
             </p>
           </form>
         </li>
@@ -136,9 +190,9 @@ export function Testimonios() {
 
       {/* Barra de progreso y flechas */}
       <div className="mt-4 flex items-center gap-4">
-        <div className="relative h-1.5 flex-1 overflow-hidden rounded-full bg-marca-menta" aria-hidden="true">
+        <div className="relative h-2 flex-1 overflow-hidden rounded-full bg-marca-menta shadow-inner" aria-hidden="true">
           <div
-            className="absolute inset-y-0 rounded-full bg-marca-oscuro transition-[left] duration-150"
+            className="absolute inset-y-0 rounded-full bg-marca-oscuro transition-[left,width] duration-300 ease-out"
             style={{ left: `${scroll.inicio * 100}%`, width: `${scroll.ancho * 100}%` }}
           />
         </div>
@@ -147,7 +201,7 @@ export function Testimonios() {
           onClick={() => mover(-1)}
           disabled={scroll.alInicio}
           aria-label="Ver comentarios anteriores"
-          className="flex h-14 w-14 items-center justify-center rounded-xl border border-marca-oscuro bg-superficie text-marca-oscuro hover:bg-marca-menta-suave disabled:cursor-not-allowed disabled:border-borde-fuerte disabled:text-borde-fuerte disabled:hover:bg-superficie"
+          className="flex h-14 w-14 items-center justify-center rounded-xl border border-marca-oscuro bg-superficie text-marca-oscuro shadow-sm transition-all duration-200 hover:scale-105 hover:bg-marca-menta-suave active:scale-95 disabled:cursor-not-allowed disabled:border-borde-fuerte disabled:text-borde-fuerte disabled:hover:scale-100 disabled:hover:bg-superficie"
         >
           <ChevronLeft className="h-6 w-6" aria-hidden="true" />
         </button>
@@ -156,7 +210,7 @@ export function Testimonios() {
           onClick={() => mover(1)}
           disabled={scroll.alFinal}
           aria-label="Ver más comentarios"
-          className="flex h-14 w-14 items-center justify-center rounded-xl border border-marca-oscuro bg-superficie text-marca-oscuro hover:bg-marca-menta-suave disabled:cursor-not-allowed disabled:border-borde-fuerte disabled:text-borde-fuerte disabled:hover:bg-superficie"
+          className="flex h-14 w-14 items-center justify-center rounded-xl border border-marca-oscuro bg-superficie text-marca-oscuro shadow-sm transition-all duration-200 hover:scale-105 hover:bg-marca-menta-suave active:scale-95 disabled:cursor-not-allowed disabled:border-borde-fuerte disabled:text-borde-fuerte disabled:hover:scale-100 disabled:hover:bg-superficie"
         >
           <ChevronRight className="h-6 w-6" aria-hidden="true" />
         </button>

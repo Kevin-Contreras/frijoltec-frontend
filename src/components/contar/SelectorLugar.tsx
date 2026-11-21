@@ -5,6 +5,7 @@ import Link from 'next/link';
 import type { Lugar, ReporteLocal } from '@/types/lugar';
 import { nombreCortoLugar, normalizarTexto } from '@/lib/formato';
 import { getReportesLocales } from '@/lib/storage';
+import { fetchReportes, type ReporteBackend } from '@/lib/api';
 import { MisReportes } from './MisReportes';
 
 interface SelectorLugarProps {
@@ -18,9 +19,19 @@ export function SelectorLugar({ lugares }: SelectorLugarProps) {
   const [busqueda, setBusqueda] = useState('');
   const [visibles, setVisibles] = useState(POR_PAGINA);
   const [misReportes, setMisReportes] = useState<ReporteLocal[]>([]);
+  const [reportesComunidad, setReportesComunidad] = useState<ReporteBackend[]>([]);
 
   useEffect(() => {
     setMisReportes(getReportesLocales());
+
+    // Cargar reportes de campo de la comunidad desde el backend
+    fetchReportes()
+      .then((rep) => {
+        if (rep && rep.length > 0) {
+          setReportesComunidad(rep);
+        }
+      })
+      .catch((err) => console.warn('No se pudieron cargar reportes del backend:', err));
   }, []);
 
   const filtrados = useMemo(() => {
@@ -84,7 +95,7 @@ export function SelectorLugar({ lugares }: SelectorLugarProps) {
         </button>
       )}
 
-      <MisReportes reportes={misReportes} />
+      <MisReportes reportes={misReportes} reportesComunidad={reportesComunidad} />
     </div>
   );
 }

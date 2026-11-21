@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="mt-auto bg-marca-oscuro py-12 font-marca text-white">
+    <footer className="mt-auto bg-marca-oscuro py-12 font-marca text-white border-t border-white/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
         <div className="max-w-3xl">
           <p className="mb-6 text-lg leading-relaxed text-white/90">
@@ -11,7 +11,7 @@ export function Footer() {
               href="https://www.globalplasticwatch.org/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white underline underline-offset-2 hover:text-marca-menta"
+              className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-marca-menta hover:text-marca-menta transition-colors"
             >
               Global Plastic Watch
             </a>{' '}
@@ -20,7 +20,7 @@ export function Footer() {
               href="https://creativecommons.org/licenses/by-nc/4.0/deed.es"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white underline underline-offset-2 hover:text-marca-menta"
+              className="text-white underline underline-offset-4 decoration-white/40 hover:decoration-marca-menta hover:text-marca-menta transition-colors"
             >
               CC BY-NC 4.0
             </a>
@@ -36,7 +36,11 @@ export function Footer() {
 
           <p className="m-0 flex items-center gap-3 text-lg font-bold">
             Hecho por
-            <img src="/marca/logo-menta-blanco.svg" alt="Frijol Tech" className="h-14 w-auto" />
+            <img
+              src="/marca/logo-menta-blanco.svg"
+              alt="Frijol Tech"
+              className="h-14 w-auto transition-transform duration-300 hover:scale-105"
+            />
           </p>
         </div>
 
@@ -44,7 +48,7 @@ export function Footer() {
           src="/marca/icono-menta.svg"
           alt=""
           aria-hidden="true"
-          className="hidden h-28 w-auto md:block"
+          className="hidden h-28 w-auto md:block opacity-85 transition-opacity hover:opacity-100 animate-float-slow"
         />
       </div>
     </footer>

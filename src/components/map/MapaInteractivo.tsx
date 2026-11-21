@@ -22,17 +22,33 @@ import {
   AlertTriangle,
   FileCheck,
 } from 'lucide-react';
+import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
 
 // Cargar mapa sólo en el navegador para evitar problemas de SSR con Leaflet
-const MapaLeaflet = dynamic(() => import('./MapaLeaflet'), {
-  ssr: false,
-  loading: () => (
-    <div className="w-full h-full min-h-[500px] flex flex-col items-center justify-center bg-fondo border border-borde rounded-xl text-texto-secundario">
-      <div className="w-10 h-10 border-4 border-principal border-t-transparent rounded-full animate-spin mb-4" />
-      <p className="font-medium">Cargando mapa interactivo...</p>
-    </div>
-  ),
-});
+const MapaLeaflet = dynamic(
+  () =>
+    import('./MapaLeaflet').catch((err) => {
+      // Si el navegador tiene en caché un hash de chunk desfasado tras un build/dev, forzamos recarga limpia
+      if (typeof window !== 'undefined') {
+        const reloaded = sessionStorage.getItem('chunk_map_reload');
+        if (!reloaded) {
+          sessionStorage.setItem('chunk_map_reload', 'true');
+          window.location.reload();
+          return new Promise<never>(() => {});
+        }
+      }
+      throw err;
+    }),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full min-h-[500px] flex flex-col items-center justify-center bg-fondo border border-borde rounded-xl text-texto-secundario">
+        <div className="w-10 h-10 border-4 border-principal border-t-transparent rounded-full animate-spin mb-4" />
+        <p className="font-medium">Cargando mapa interactivo...</p>
+      </div>
+    ),
+  }
+);
 
 interface MapaInteractivoProps {
   lugares: Lugar[];
@@ -180,18 +196,20 @@ export function MapaInteractivo({
 
       {/* Contenedor del Mapa con Hoja / Panel flotante */}
       <div className="relative flex-1 w-full overflow-hidden">
-        <MapaLeaflet
-          lugares={lugaresFiltrados}
-          puntosControl={puntosControl}
-          mostrarControl={mostrarControl}
-          lugarSeleccionado={lugarActivo}
-          onSeleccionarLugar={(lugar) => setLugarActivo(lugar)}
-          capaSatelital={capaSatelital}
-        />
+        <ErrorBoundary>
+          <MapaLeaflet
+            lugares={lugaresFiltrados}
+            puntosControl={puntosControl}
+            mostrarControl={mostrarControl}
+            lugarSeleccionado={lugarActivo}
+            onSeleccionarLugar={(lugar) => setLugarActivo(lugar)}
+            capaSatelital={capaSatelital}
+          />
+        </ErrorBoundary>
 
         {/* Tarjeta flotante cuando se toca un lugar */}
         {lugarActivo && (
-          <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:w-96 max-w-full z-[1000] bg-superficie border border-borde rounded-2xl shadow-2xl p-5 animate-slideUp">
+          <div className="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:bottom-6 sm:w-96 max-w-full z-[1000] bg-superficie border border-borde rounded-2xl shadow-2xl p-5 animate-fade-in-up">
             <div className="flex items-start justify-between gap-3 mb-2">
               <div className="flex items-center gap-2">
                 <span className="px-2 py-0.5 text-xs font-bold rounded bg-principal-suave text-principal">
