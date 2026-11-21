@@ -55,6 +55,47 @@ export function normalizarTexto(texto: string): string {
     : '';
 }
 
+/** Redondea a 2 cifras para leerlo fácil: 9,812 → 9,800; 473,057 → 470,000. */
+export function aproximarPoblacion(n: number): string {
+  if (n < 100) return formatearNumero(n);
+  const factor = 10 ** (Math.floor(Math.log10(n)) - 1);
+  return formatearNumero(Math.round(n / factor) * factor);
+}
+
+/** Frase sencilla sobre el agua cercana. */
+export function fraseAgua(lugar: Lugar): string {
+  const estado = estadoAgua(lugar);
+  if (estado === 'sin-dato') return 'No sabemos qué tan cerca está el agua.';
+  const tipo = nombreTipoAgua(lugar.tipoAgua);
+  const distancia = formatearDistancia(lugar.distanciaAguaM);
+  return estado === 'cerca'
+    ? `Hay agua (${tipo}) a solo ${distancia}. La basura podría llegar al agua.`
+    : `El agua más cercana (${tipo}) está a ${distancia}.`;
+}
+
+/** Frase sencilla sobre cuántas personas viven cerca. */
+export function frasePoblacion(lugar: Lugar): string {
+  const { poblacion1km: p1, poblacion5km: p5 } = lugar;
+  if (p1 === null && p5 === null) return 'No sabemos cuántas personas viven cerca.';
+  if (p1 !== null && p5 !== null) {
+    return `Unas ${aproximarPoblacion(p1)} personas viven a menos de 1 km y ${aproximarPoblacion(p5)} a menos de 5 km.`;
+  }
+  const [n, radio] = p1 !== null ? [p1, '1 km'] : [p5 as number, '5 km'];
+  return `Unas ${aproximarPoblacion(n)} personas viven a menos de ${radio}.`;
+}
+
+/**
+ * Nombre corto para mostrar, sacado de la dirección real (no se inventan nombres):
+ * "1a Calle, Patulul, Suchitepéquez, 10014, Guatemala" → "1a Calle, Patulul".
+ */
+export function nombreCortoLugar(lugar: { direccion: string }): string {
+  const partes = lugar.direccion
+    .split(',')
+    .map((p) => p.trim())
+    .filter((p) => p && !/^\d{4,}$/.test(p) && p !== 'Guatemala');
+  return partes.slice(0, 2).join(', ') || lugar.direccion;
+}
+
 export function enlaceComoLlegar(lugar: { lat: number; lon: number }): string {
   return `https://www.google.com/maps/dir/?api=1&destination=${lugar.lat},${lugar.lon}`;
 }

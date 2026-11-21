@@ -42,6 +42,9 @@ export interface ReporteLocal {
   estado: EstadoReporte;
   fotoUrl?: string;
   notas?: string;
+  /** Teléfono o correo para contactar a la persona (opcional). */
   telefono?: string;
+  /** Día de la visita, formato AAAA-MM-DD. */
+  fechaVisita?: string;
   fecha: string;
 }

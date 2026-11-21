@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getLugares, getLugarById } from '@/lib/data';
+import { nombreCortoLugar } from '@/lib/formato';
 import { DetalleLugarView } from '@/components/places/DetalleLugarView';
 
 interface LugarPageProps {
@@ -18,8 +19,8 @@ export async function generateMetadata({ params }: LugarPageProps): Promise<Meta
   }
 
   return {
-    title: `${lugar.direccion.substring(0, 50)}... · Basureros en Guatemala`,
-    description: `Ficha del posible basurero ${lugar.id} en ${lugar.departamento}, Guatemala. Coordenadas, cercanía al agua y estado.`,
+    title: `${nombreCortoLugar(lugar)}, ${lugar.departamento} · Basureros en Guatemala`,
+    description: `Posible basurero en ${lugar.departamento}, Guatemala: cercanía al agua, personas que viven cerca y cómo llegar.`,
   };
 }
 
@@ -38,16 +39,5 @@ export default async function LugarPage({ params }: LugarPageProps) {
     notFound();
   }
 
-  const lugares = getLugares();
-  const index = lugares.findIndex((l) => l.id.toLowerCase() === lugar.id.toLowerCase());
-  const anteriorId = index > 0 ? lugares[index - 1].id : undefined;
-  const siguienteId = index < lugares.length - 1 ? lugares[index + 1].id : undefined;
-
-  return (
-    <DetalleLugarView
-      lugar={lugar}
-      anteriorId={anteriorId}
-      siguienteId={siguienteId}
-    />
-  );
+  return <DetalleLugarView lugar={lugar} lugares={getLugares()} />;
 }
