@@ -5,10 +5,12 @@ import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { Megaphone, Menu, X } from 'lucide-react';
 
-const ENLACES = [
+const ENLACES: { ruta: string; texto: string; tambienActivoEn?: string[] }[] = [
   { ruta: '/mapa', texto: 'Mapa' },
   { ruta: '/lista', texto: 'Lista' },
   { ruta: '/resumen', texto: 'Resumen' },
+  // Modo municipalidad / asociaciones (bosquejo). El panel también cuenta como esta pestaña.
+  { ruta: '/organizaciones', texto: 'Organizaciones', tambienActivoEn: ['/panel'] },
 ];
 
 const CTA = { ruta: '/contar', texto: 'Contar lo que vi' };
@@ -17,7 +19,8 @@ export function Header() {
   const pathname = usePathname();
   const [menuAbierto, setMenuAbierto] = useState(false);
 
-  const esActivo = (ruta: string) => pathname === ruta || pathname.startsWith(`${ruta}/`);
+  const coincide = (ruta: string) => pathname === ruta || pathname.startsWith(`${ruta}/`);
+  const esActivo = (ruta: string, tambien: string[] = []) => coincide(ruta) || tambien.some(coincide);
 
   return (
     <header className="sticky top-0 z-50 bg-marca-oscuro font-marca text-white">
@@ -28,9 +31,9 @@ export function Header() {
         </Link>
 
         {/* Navegación Escritorio */}
-        <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-2">
+        <nav aria-label="Navegación principal" className="hidden lg:flex items-center gap-1">
           {ENLACES.map((enlace) => {
-            const activo = esActivo(enlace.ruta);
+            const activo = esActivo(enlace.ruta, enlace.tambienActivoEn);
             return (
               <Link
                 key={enlace.ruta}
@@ -49,7 +52,7 @@ export function Header() {
         <Link
           href={CTA.ruta}
           aria-current={esActivo(CTA.ruta) ? 'page' : undefined}
-          className="hidden md:inline-flex min-h-[56px] items-center gap-2 rounded-xl bg-marca-menta px-6 text-lg font-semibold text-marca-oscuro transition-colors hover:bg-marca-menta-hover"
+          className="hidden lg:inline-flex min-h-[56px] items-center gap-2 rounded-xl bg-marca-menta px-6 text-lg font-semibold text-marca-oscuro transition-colors hover:bg-marca-menta-hover"
         >
           <Megaphone className="h-5 w-5" aria-hidden="true" />
           {CTA.texto}
@@ -59,7 +62,7 @@ export function Header() {
         <button
           type="button"
           onClick={() => setMenuAbierto(!menuAbierto)}
-          className="md:hidden p-3 rounded-lg text-white hover:bg-white/10"
+          className="lg:hidden p-3 rounded-lg text-white hover:bg-white/10"
           aria-label={menuAbierto ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuAbierto}
           aria-controls="menu-movil"
@@ -73,10 +76,10 @@ export function Header() {
         <nav
           id="menu-movil"
           aria-label="Navegación principal"
-          className="md:hidden border-t border-white/10 bg-marca-oscuro px-4 pt-2 pb-6 space-y-2"
+          className="lg:hidden border-t border-white/10 bg-marca-oscuro px-4 pt-2 pb-6 space-y-2"
         >
           {ENLACES.map((enlace) => {
-            const activo = esActivo(enlace.ruta);
+            const activo = esActivo(enlace.ruta, enlace.tambienActivoEn);
             return (
               <Link
                 key={enlace.ruta}

@@ -5,6 +5,7 @@ import { enlaceComoLlegar, estadoAgua, fraseAgua, frasePoblacion, nombreCortoLug
 import { MapaGuatemalaZoom } from '@/components/map/MapaGuatemalaZoom';
 import { EtiquetaAgua, EtiquetaRevision } from './EtiquetasLugar';
 import { MasDatosLugar } from './MasDatosLugar';
+import { SeguimientoLugar } from '@/components/gestion/SeguimientoLugar';
 
 interface DetalleLugarViewProps {
   lugar: Lugar;
@@ -69,6 +70,8 @@ export function DetalleLugarView({ lugar, lugares }: DetalleLugarViewProps) {
               Ya fui, quiero contar qué vi
             </Link>
           </div>
+
+          <SeguimientoLugar lugarId={lugar.id} />
 
           <MasDatosLugar lugar={lugar} />
         </div>

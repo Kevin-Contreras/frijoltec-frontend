@@ -27,6 +27,7 @@ export function FormularioContar({ lugares, lugarInicialId }: FormularioContarPr
   const [fechaVisita, setFechaVisita] = useState('');
   const [notas, setNotas] = useState('');
   const [contacto, setContacto] = useState('');
+  const [avisar, setAvisar] = useState(true);
 
   // La fecha de hoy se calcula en el navegador para usar la hora local de la persona.
   useEffect(() => {
@@ -60,6 +61,7 @@ export function FormularioContar({ lugares, lugarInicialId }: FormularioContarPr
       notas: notas.trim() || undefined,
       telefono: contacto.trim() || undefined,
       fechaVisita: fechaVisita || undefined,
+      avisarOrganizaciones: avisar,
     });
     setPaso(3);
   };
@@ -90,6 +92,8 @@ export function FormularioContar({ lugares, lugarInicialId }: FormularioContarPr
             onNotas={setNotas}
             contacto={contacto}
             onContacto={setContacto}
+            avisar={avisar}
+            onAvisar={setAvisar}
             onAtras={() => setPaso(1)}
             onEnviar={enviar}
           />
