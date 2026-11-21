@@ -19,17 +19,10 @@ export default async function ContarConIdPage({ params }: ContarConIdProps) {
   const lugares = getLugares();
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 w-full">
-      <div className="mb-8 text-center max-w-xl mx-auto">
-        <h1 className="font-titulos text-3xl sm:text-4xl font-bold text-texto mb-2">
-          Contar lo que vi
-        </h1>
-        <p className="text-texto-secundario text-base sm:text-lg">
-          Reportando sobre el lugar <strong>{id}</strong>. Responde qué encontraste en el terreno.
-        </p>
+    <div className="w-full flex-1 bg-marca-fondo">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10 sm:py-14">
+        <FormularioContar lugares={lugares} lugarInicialId={id} />
       </div>
-
-      <FormularioContar lugares={lugares} lugarInicialId={id} />
     </div>
   );
 }
