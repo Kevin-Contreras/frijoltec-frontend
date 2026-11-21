@@ -1,0 +1,1409 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.533256,
+     14.631855
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-001",
+    "gpw_id": "8f6d291a9760cd8",
+    "lugar": "17 Calle D, Colonia 6 de Octubre, Zone 7, Guatemala City, Guatemala Department, 01003, Guatemala",
+    "distancia_agua_m": 134,
+    "tipo_agua_cercana": "stream",
+    "poblacion_1km": 22224,
+    "poblacion_5km": 473057,
+    "elevacion_m": 1509,
+    "pendiente_grados": 8.3,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Guatemala"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.161086,
+     14.401701
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-002",
+    "gpw_id": "8f6d2b86aac5853",
+    "lugar": "1a Calle, Patulul, Suchitepéquez, 10014, Guatemala",
+    "distancia_agua_m": 2062,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 746,
+    "poblacion_5km": 33358,
+    "elevacion_m": 347,
+    "pendiente_grados": 8.3,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Suchitepéquez"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.64847,
+     16.651859
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-003",
+    "gpw_id": "8f452c51831bb54",
+    "lugar": "4a. Avenida, El Chal, Petén, Guatemala",
+    "distancia_agua_m": 1868,
+    "tipo_agua_cercana": "pond",
+    "poblacion_1km": 933.0,
+    "poblacion_5km": 7144.0,
+    "elevacion_m": 284.0,
+    "pendiente_grados": 2.9,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Petén"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.018818,
+     14.315908
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-004",
+    "gpw_id": "8f6d2bb28ae4b41",
+    "lugar": "5a Avenida, Santa Lucía Cotzumalguapa, Escuintla, Guatemala",
+    "distancia_agua_m": 89,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 3495,
+    "poblacion_5km": 68251,
+    "elevacion_m": 338,
+    "pendiente_grados": 1.8,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Escuintla"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.721772,
+     14.347204
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-005",
+    "gpw_id": "8f6d74d758cbc2e",
+    "lugar": "Asunción Mita, Jutiapa, Guatemala",
+    "distancia_agua_m": 497,
+    "tipo_agua_cercana": "ditch",
+    "poblacion_1km": 704.0,
+    "poblacion_5km": 10028.0,
+    "elevacion_m": 499.0,
+    "pendiente_grados": 4.1,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Jutiapa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.825518,
+     15.515164
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-006",
+    "gpw_id": "8f4520aea675c58",
+    "lugar": "CA-13, La Ruidosa, Morales, Izabal, Guatemala",
+    "distancia_agua_m": 2351,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 665,
+    "poblacion_5km": 20407,
+    "elevacion_m": 60,
+    "pendiente_grados": 4.4,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Izabal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.796538,
+     14.919641
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-007",
+    "gpw_id": "8f4525b8925b752",
+    "lugar": "Cabañas, Zacapa, Guatemala",
+    "distancia_agua_m": 2078,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 377.0,
+    "poblacion_5km": 10923.0,
+    "elevacion_m": 293.0,
+    "pendiente_grados": 12.2,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Zacapa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.625324,
+     14.513335
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-008",
+    "gpw_id": "8f6d29084a5686b",
+    "lugar": "Carcel de Autos, Autopista Ciudad de Guatemala - Palín, Plan Grande, Zona 10 de Villa Nueva, Villa Nueva City, Guatemala Department, 01064, Guatemala",
+    "distancia_agua_m": 2218,
+    "tipo_agua_cercana": "pond",
+    "poblacion_1km": 7353.0,
+    "poblacion_5km": 312514.0,
+    "elevacion_m": 1378.0,
+    "pendiente_grados": 1.4,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Guatemala"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.034912,
+     15.364119
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-009",
+    "gpw_id": "8f45256948da769",
+    "lugar": "Carretera Presidente Coronel Jacobo Árbenz Guzmán, Los Amates, Izabal, Guatemala",
+    "distancia_agua_m": null,
+    "tipo_agua_cercana": -1,
+    "poblacion_1km": 176,
+    "poblacion_5km": 5224,
+    "elevacion_m": 107,
+    "pendiente_grados": 7.8,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Izabal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.612259,
+     15.035803
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-010",
+    "gpw_id": "8f452506e80ba04",
+    "lugar": "Carretera Presidente Coronel Jacobo Árbenz Guzmán, Río Hondo, Zacapa, 19003, Guatemala",
+    "distancia_agua_m": 1364,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 259.0,
+    "poblacion_5km": 7503.0,
+    "elevacion_m": 214.0,
+    "pendiente_grados": 4.3,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Zacapa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.156795,
+     14.90409
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-011",
+    "gpw_id": "8f6d2995ba0a589",
+    "lugar": "Carretera San Agustín Acasaguastlán - Cobán, La Cumbre, Morazán, El Progreso, Guatemala",
+    "distancia_agua_m": 1940,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 121.0,
+    "poblacion_5km": 4794.0,
+    "elevacion_m": 571.0,
+    "pendiente_grados": 24.8,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "El Progreso"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.931206,
+     16.895204
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-012",
+    "gpw_id": "8f452c7256e64c1",
+    "lugar": "Carretera San Benito - La Libertad, San Antonio, San Benito, Petén, 17002, Guatemala",
+    "distancia_agua_m": 2160,
+    "tipo_agua_cercana": "water",
+    "poblacion_1km": 3857,
+    "poblacion_5km": 71932,
+    "elevacion_m": 157,
+    "pendiente_grados": 10.3,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Petén"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.912355,
+     16.888695
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-013",
+    "gpw_id": "8f452c720c462c5",
+    "lugar": "Carretera San Benito - San Francisco, San Benito, Petén, Guatemala",
+    "distancia_agua_m": 3570,
+    "tipo_agua_cercana": "stream",
+    "poblacion_1km": 1169,
+    "poblacion_5km": 66388,
+    "elevacion_m": 181,
+    "pendiente_grados": 3.6,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Petén"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.195006,
+     14.518437
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-014",
+    "gpw_id": "8f6d29a8530e74b",
+    "lugar": "Carretera a Mataquescuintla, San José La Sierra, Mataquescuintla, Jalapa, Guatemala",
+    "distancia_agua_m": 798,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 1984,
+    "poblacion_5km": 23341,
+    "elevacion_m": 1639,
+    "pendiente_grados": 12.5,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Jalapa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.362528,
+     14.098902
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-015",
+    "gpw_id": "8f6d292f2d4836b",
+    "lugar": "Chiquimulilla, Santa Rosa, 06008, Guatemala",
+    "distancia_agua_m": 312,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 569,
+    "poblacion_5km": 14364,
+    "elevacion_m": 309,
+    "pendiente_grados": 2.4,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Santa Rosa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.493812,
+     14.894973
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-016",
+    "gpw_id": "8f6d29d49a0114b",
+    "lugar": "Chuarrancho, Guatemala Department, Guatemala",
+    "distancia_agua_m": 23,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 271.0,
+    "poblacion_5km": 6431.0,
+    "elevacion_m": 545.0,
+    "pendiente_grados": 2.6,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Guatemala"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.516061,
+     14.950759
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-017",
+    "gpw_id": "8f452502d599703",
+    "lugar": "Colonia Banvi, Puente Blanco, Municipio de Zacapa, Zacapa, 1901, Guatemala",
+    "distancia_agua_m": 543,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 1579.0,
+    "poblacion_5km": 37627.0,
+    "elevacion_m": 243.0,
+    "pendiente_grados": 4.3,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Zacapa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.056107,
+     14.066053
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-018",
+    "gpw_id": "8f6d2ba50895c15",
+    "lugar": "Colonia Costa Rica, La Gomera, Escuintla, Guatemala",
+    "distancia_agua_m": 278,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 957.0,
+    "poblacion_5km": 13571.0,
+    "elevacion_m": 35.0,
+    "pendiente_grados": 2.0,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Escuintla"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.101388,
+     13.92787
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-019",
+    "gpw_id": "8f6d76d96986c88",
+    "lugar": "El Paredón, Sipacate, Escuintla, Guatemala",
+    "distancia_agua_m": 332,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 204.0,
+    "poblacion_5km": 3588.0,
+    "elevacion_m": 8.0,
+    "pendiente_grados": 0.3,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Escuintla"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.539915,
+     14.883612
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-020",
+    "gpw_id": "8f6d29c6485094c",
+    "lugar": "El Sacramento, Granados, Baja Verapaz, Guatemala",
+    "distancia_agua_m": 72,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 328.0,
+    "poblacion_5km": 8530.0,
+    "elevacion_m": 578.0,
+    "pendiente_grados": 7.1,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Baja Verapaz"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.836498,
+     15.99262
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-021",
+    "gpw_id": "8f6d2c22dd33646",
+    "lugar": "Franja Transversal del Norte, Santa Rosa, San Lucas, Ixcán, Quiché, Guatemala",
+    "distancia_agua_m": null,
+    "tipo_agua_cercana": -1,
+    "poblacion_1km": 563,
+    "poblacion_5km": 11053,
+    "elevacion_m": 226,
+    "pendiente_grados": 0.9,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Quiché"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.370811,
+     15.113698
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-022",
+    "gpw_id": "8f45250d5451028",
+    "lugar": "Gualán, Zacapa, 190004, Guatemala",
+    "distancia_agua_m": 482,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 867.0,
+    "poblacion_5km": 14217.0,
+    "elevacion_m": 150.0,
+    "pendiente_grados": 4.4,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Zacapa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.620244,
+     14.590616
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-023",
+    "gpw_id": "8f4525815072b05",
+    "lugar": "Ipala, Chiquimula, 20011, Guatemala",
+    "distancia_agua_m": 3247,
+    "tipo_agua_cercana": "water",
+    "poblacion_1km": 190.0,
+    "poblacion_5km": 9466.0,
+    "elevacion_m": 858.0,
+    "pendiente_grados": 2.0,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Chiquimula"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.393414,
+     14.823856
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-024",
+    "gpw_id": "8f452511270e49b",
+    "lugar": "Jocotán, Chiquimula, 20004, Guatemala",
+    "distancia_agua_m": 125,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 6081.0,
+    "poblacion_5km": 44009.0,
+    "elevacion_m": 461.0,
+    "pendiente_grados": 11.2,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Chiquimula"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.062476,
+     14.886329
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-025",
+    "gpw_id": "8f4525b6ab63874",
+    "lugar": "KM. 77, Guastatoya, El Progreso, Guatemala",
+    "distancia_agua_m": 2654,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 613.0,
+    "poblacion_5km": 20402.0,
+    "elevacion_m": 485.0,
+    "pendiente_grados": 12.7,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "El Progreso"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.18344,
+     17.060696
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-026",
+    "gpw_id": "8f452e14598945d",
+    "lugar": "Melchor de Mencos, Petén, Guatemala",
+    "distancia_agua_m": 351,
+    "tipo_agua_cercana": "pond",
+    "poblacion_1km": 147.0,
+    "poblacion_5km": 6271.0,
+    "elevacion_m": 148.0,
+    "pendiente_grados": 4.1,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Petén"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.529043,
+     14.840003
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-027",
+    "gpw_id": "8f452510d99e800",
+    "lugar": "Municipio de Chiquimula, Chiquimula, 20001, Guatemala",
+    "distancia_agua_m": 243,
+    "tipo_agua_cercana": "stream",
+    "poblacion_1km": 1105,
+    "poblacion_5km": 34618,
+    "elevacion_m": 391,
+    "pendiente_grados": 4.4,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Chiquimula"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.732291,
+     14.209747
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-028",
+    "gpw_id": "8f6d29633000965",
+    "lugar": "Municipio de Escuintla, Escuintla, Guatemala",
+    "distancia_agua_m": 798,
+    "tipo_agua_cercana": "stream",
+    "poblacion_1km": 569,
+    "poblacion_5km": 10329,
+    "elevacion_m": 148,
+    "pendiente_grados": 2.5,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Escuintla"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.757101,
+     14.447448
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-029",
+    "gpw_id": "8f6d2bc0365d203",
+    "lugar": "Municipio de Retalhuleu, Retalhuleu, Guatemala",
+    "distancia_agua_m": 3928,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 182.0,
+    "poblacion_5km": 5244.0,
+    "elevacion_m": 96.0,
+    "pendiente_grados": 2.0,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Retalhuleu"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -92.054855,
+     14.707952
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-030",
+    "gpw_id": "8f6d2aaf2784541",
+    "lugar": "Pajapita, San Marcos, Guatemala",
+    "distancia_agua_m": 228,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 733,
+    "poblacion_5km": 25557,
+    "elevacion_m": 67,
+    "pendiente_grados": 1.2,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "San Marcos"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.364408,
+     14.693392
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-031",
+    "gpw_id": "8f6d298da65b6e6",
+    "lugar": "Palencia, Guatemala Department, 0101, Guatemala",
+    "distancia_agua_m": 491,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 948.0,
+    "poblacion_5km": 54375.0,
+    "elevacion_m": 1094.0,
+    "pendiente_grados": 7.8,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Guatemala"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.85376,
+     14.316243
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-032",
+    "gpw_id": "8f6d2bcd2849208",
+    "lugar": "Parcelamiento el Rosario, Champerico, Retalhuleu, Guatemala",
+    "distancia_agua_m": 2552,
+    "tipo_agua_cercana": "water",
+    "poblacion_1km": 349.0,
+    "poblacion_5km": 11428.0,
+    "elevacion_m": 16.0,
+    "pendiente_grados": 2.4,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Retalhuleu"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.572413,
+     14.479701
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-033",
+    "gpw_id": "8f6d290a94f6c71",
+    "lugar": "Playa de Oro, San Miguel Petapa, Guatemala Department, 01064, Guatemala",
+    "distancia_agua_m": 115,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 1724,
+    "poblacion_5km": 299028,
+    "elevacion_m": 1192,
+    "pendiente_grados": 0,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Guatemala"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -88.546201,
+     15.656717
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-034",
+    "gpw_id": "8f452038d148c14",
+    "lugar": "Puerto Barrios, Izabal, Guatemala",
+    "distancia_agua_m": 1422,
+    "tipo_agua_cercana": "stream",
+    "poblacion_1km": 687,
+    "poblacion_5km": 15939,
+    "elevacion_m": 60,
+    "pendiente_grados": 2.9,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Izabal"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.462231,
+     14.58847
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-035",
+    "gpw_id": "8f45258b611b074",
+    "lugar": "Quezaltepeque, Chiquimula, 2009, Guatemala",
+    "distancia_agua_m": 4188,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 257.0,
+    "poblacion_5km": 8142.0,
+    "elevacion_m": 781.0,
+    "pendiente_grados": 20.5,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Chiquimula"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.921691,
+     15.705773
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-036",
+    "gpw_id": "8f6d2e301963b14",
+    "lugar": "RD HUE-12, Las Guacamayas, Camojá Grande, La Libertad, Huehuetenango, Guatemala",
+    "distancia_agua_m": 344,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 276.0,
+    "poblacion_5km": 7995.0,
+    "elevacion_m": 703.0,
+    "pendiente_grados": 2.5,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Huehuetenango"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.733227,
+     14.375041
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-037",
+    "gpw_id": "8f4525925cf1d0d",
+    "lugar": "RD JUT-06, Santa Catarina Mita, Jutiapa, Guatemala",
+    "distancia_agua_m": 1749,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 395.0,
+    "poblacion_5km": 7948.0,
+    "elevacion_m": 723.0,
+    "pendiente_grados": 3.3,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Jutiapa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.230701,
+     14.769217
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-038",
+    "gpw_id": "8f6d298ed664701",
+    "lugar": "RD PRO-12, Sanarate, El Progreso, Guatemala",
+    "distancia_agua_m": 339,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 236.0,
+    "poblacion_5km": 17096.0,
+    "elevacion_m": 840.0,
+    "pendiente_grados": 9.7,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "El Progreso"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.349229,
+     14.323109
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-039",
+    "gpw_id": "8f6d293aeb34c33",
+    "lugar": "RD SRO-03, Barberena, Santa Rosa, 06012, Guatemala",
+    "distancia_agua_m": null,
+    "tipo_agua_cercana": "-1",
+    "poblacion_1km": 852.0,
+    "poblacion_5km": 26782.0,
+    "elevacion_m": 1363.0,
+    "pendiente_grados": 11.6,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Santa Rosa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.869829,
+     14.716526
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-040",
+    "gpw_id": "8f6d2aa4262e4d0",
+    "lugar": "RN-13, Coatepeque, Quetzaltenango, 09020, Guatemala",
+    "distancia_agua_m": 210,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 4612.0,
+    "poblacion_5km": 68202.0,
+    "elevacion_m": 433.0,
+    "pendiente_grados": 11.0,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Quetzaltenango"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.482524,
+     15.096918
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-041",
+    "gpw_id": "8f6d2d6cc91299a",
+    "lugar": "RN-5, San Miguel Chicaj, Baja Verapaz, Guatemala",
+    "distancia_agua_m": 895,
+    "tipo_agua_cercana": "stream",
+    "poblacion_1km": 1964,
+    "poblacion_5km": 18488,
+    "elevacion_m": 968,
+    "pendiente_grados": 1.6,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Baja Verapaz"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.395857,
+     15.454604
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-042",
+    "gpw_id": "8f6d2d72c130444",
+    "lugar": "Residenciales Bouganvilas de Cacic, Zona 6, Cobán, Alta Verapaz, 16001, Guatemala",
+    "distancia_agua_m": 281,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 7222,
+    "poblacion_5km": 98575,
+    "elevacion_m": 1389,
+    "pendiente_grados": 4.0,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Alta Verapaz"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.34132,
+     15.116494
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-043",
+    "gpw_id": "8f6d2d648740233",
+    "lugar": "Salamá, Baja Verapaz, Guatemala",
+    "distancia_agua_m": 832,
+    "tipo_agua_cercana": "stream",
+    "poblacion_1km": 420,
+    "poblacion_5km": 19600,
+    "elevacion_m": 955,
+    "pendiente_grados": 2.3,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Baja Verapaz"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.290313,
+     14.761811
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-044",
+    "gpw_id": "8f6d298c19a892a",
+    "lugar": "San Antonio La Paz, El Progreso, Guatemala",
+    "distancia_agua_m": 4786,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 795.0,
+    "poblacion_5km": 15057.0,
+    "elevacion_m": 1164.0,
+    "pendiente_grados": 15.1,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "El Progreso"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -89.799692,
+     14.812078
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-045",
+    "gpw_id": "8f4525ba136c1a6",
+    "lugar": "San Diego, Zacapa, Guatemala",
+    "distancia_agua_m": 3059,
+    "tipo_agua_cercana": "stream",
+    "poblacion_1km": 95.0,
+    "poblacion_5km": 5391.0,
+    "elevacion_m": 902.0,
+    "pendiente_grados": 10.2,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Zacapa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.378183,
+     14.765933
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-046",
+    "gpw_id": "8f6d298d0504c55",
+    "lugar": "San José del Golfo, Guatemala Department, Guatemala",
+    "distancia_agua_m": 1321,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 497.0,
+    "poblacion_5km": 18651.0,
+    "elevacion_m": 892.0,
+    "pendiente_grados": 9.2,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Guatemala"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.866,
+     13.953351
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-047",
+    "gpw_id": "8f6d76d0155b411",
+    "lugar": "San José, Escuintla, Guatemala",
+    "distancia_agua_m": 3641,
+    "tipo_agua_cercana": "pond",
+    "poblacion_1km": 231,
+    "poblacion_5km": 9764,
+    "elevacion_m": 16,
+    "pendiente_grados": 1.9,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Escuintla"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.863994,
+     13.954057
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-048",
+    "gpw_id": "8f6d76d0154d14b",
+    "lugar": "San José, Escuintla, Guatemala",
+    "distancia_agua_m": 3794,
+    "tipo_agua_cercana": "pond",
+    "poblacion_1km": 249.0,
+    "poblacion_5km": 10197.0,
+    "elevacion_m": 14.0,
+    "pendiente_grados": 0.4,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Escuintla"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.580169,
+     14.622683
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-049",
+    "gpw_id": "8f6d286d92004f5",
+    "lugar": "San Martín Zapotitlán, Retalhuleu, Guatemala",
+    "distancia_agua_m": 1526,
+    "tipo_agua_cercana": "stream",
+    "poblacion_1km": 3192.0,
+    "poblacion_5km": 49588.0,
+    "elevacion_m": 678.0,
+    "pendiente_grados": 1.8,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Retalhuleu"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.445098,
+     14.584948
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-050",
+    "gpw_id": "8f6d2b981483583",
+    "lugar": "San Pablo Jocopilas, Suchitepéquez, Guatemala",
+    "distancia_agua_m": 72,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 3957.0,
+    "poblacion_5km": 61473.0,
+    "elevacion_m": 630.0,
+    "pendiente_grados": 8.2,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Suchitepéquez"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.35609,
+     14.385858
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-051",
+    "gpw_id": "8f6d2904b586354",
+    "lugar": "Santa Cruz Naranjo, Santa Rosa, 06012, Guatemala",
+    "distancia_agua_m": 1344,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 801.0,
+    "poblacion_5km": 16638.0,
+    "elevacion_m": 1137.0,
+    "pendiente_grados": 8.0,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Santa Rosa"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.357848,
+     15.32114
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-052",
+    "gpw_id": "8f6d2d742145254",
+    "lugar": "Tactic, Alta Verapaz, Guatemala",
+    "distancia_agua_m": 49,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 3737.0,
+    "poblacion_5km": 30075.0,
+    "elevacion_m": 1462.0,
+    "pendiente_grados": 4.5,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Alta Verapaz"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -90.790936,
+     13.930013
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-053",
+    "gpw_id": "8f6d76d70c20456",
+    "lugar": "Terminal de granos del Pacífico Ltda, Puerto Quetzal, Empresa Portuaria Quetzal, San José, Escuintla, Guatemala",
+    "distancia_agua_m": 102,
+    "tipo_agua_cercana": "coastline",
+    "poblacion_1km": 3376.0,
+    "poblacion_5km": 27445.0,
+    "elevacion_m": 7.0,
+    "pendiente_grados": 0.7,
+    "fuentes": "GPW positivos confirmados (Centroamérica); GPW sitios compilados; GPW sitios sin contorno",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "Escuintla"
+   }
+  },
+  {
+   "type": "Feature",
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -92.14582,
+     14.66738
+    ]
+   },
+   "properties": {
+    "id": "GPW-GT-054",
+    "gpw_id": "8f6d2a335a5e6ea",
+    "lugar": "Zona 2, Ciudad Tecún Umán, Ayutla Tecún Umán, San Marcos, Guatemala",
+    "distancia_agua_m": 111,
+    "tipo_agua_cercana": "river",
+    "poblacion_1km": 3916,
+    "poblacion_5km": 46186,
+    "elevacion_m": 27,
+    "pendiente_grados": 1.7,
+    "fuentes": "GPW positivos confirmados (Guatemala); GPW sitios compilados; GPW v1.0 Guatemala (con metadatos)",
+    "tipo": "deteccion_satelital",
+    "verificado_en_campo": false,
+    "licencia": "CC BY-NC 4.0 - Earthrise Media / Minderoo Foundation (Global Plastic Watch)",
+    "departamento": "San Marcos"
+   }
+  }
+ ]
+}

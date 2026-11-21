@@ -1,0 +1,20 @@
+<header class="encabezado">
+  <div class="contenedor encabezado__fila">
+    <a routerLink="/" class="marca">Basureros en Guatemala</a>
+
+    <nav aria-label="Menú principal">
+      <ul class="menu">
+        @for (enlace of enlaces; track enlace.ruta) {
+          <li>
+            <a
+              [routerLink]="enlace.ruta"
+              routerLinkActive="activo"
+              ariaCurrentWhenActive="page"
+              class="menu__enlace"
+            >{{ enlace.texto }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
