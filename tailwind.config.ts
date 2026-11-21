@@ -27,10 +27,21 @@ const config: Config = {
           hover: "#953913",
         },
         "sin-dato": "#8A9590",
+        // Marca Frijol Tech (nuevo diseño de Figma)
+        marca: {
+          oscuro: "#142A27",
+          "oscuro-hover": "#1F3D39",
+          menta: "#D1F7DE",
+          "menta-hover": "#BFF0CF",
+          "menta-suave": "#E3F8EA",
+          verde: "#69AB90",
+          fondo: "#F3FAF6",
+        },
       },
       fontFamily: {
         titulos: ["var(--font-space-grotesk)", "sans-serif"],
         sans: ["var(--font-inter)", "sans-serif"],
+        marca: ["var(--font-montserrat)", "sans-serif"],
       },
       borderRadius: {
         sm: "10px",

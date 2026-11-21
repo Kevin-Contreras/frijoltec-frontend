@@ -3,88 +3,66 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { MapPin, Menu, X, Compass, ListFilter, BarChart3, MessageSquarePlus } from 'lucide-react';
+import { Megaphone, Menu, X } from 'lucide-react';
 
 const ENLACES = [
-  { ruta: '/', texto: 'Inicio', icono: Compass },
-  { ruta: '/mapa', texto: 'Mapa', icono: MapPin },
-  { ruta: '/lista', texto: 'Buscar un lugar', icono: ListFilter },
-  { ruta: '/resumen', texto: 'Resumen', icono: BarChart3 },
-  { ruta: '/contar', texto: 'Contar lo que vi', icono: MessageSquarePlus, destacado: true },
+  { ruta: '/mapa', texto: 'Mapa' },
+  { ruta: '/lista', texto: 'Lista' },
+  { ruta: '/resumen', texto: 'Resumen' },
 ];
+
+const CTA = { ruta: '/contar', texto: 'Contar lo que vi' };
 
 export function Header() {
   const pathname = usePathname();
   const [menuAbierto, setMenuAbierto] = useState(false);
 
+  const esActivo = (ruta: string) => pathname === ruta || pathname.startsWith(`${ruta}/`);
+
   return (
-    <header className="sticky top-0 z-50 bg-superficie border-b border-borde shadow-sm">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+    <header className="sticky top-0 z-50 bg-marca-oscuro font-marca text-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 h-20 sm:h-24 flex items-center justify-between gap-4">
         {/* Marca / Logo */}
-        <Link
-          href="/"
-          className="flex items-center gap-3 text-texto hover:text-principal transition-colors focus:rounded-md p-1"
-        >
-          <span className="w-10 h-10 rounded-xl bg-principal text-white flex items-center justify-center font-titulos font-bold text-xl shadow-inner">
-            GT
-          </span>
-          <div className="flex flex-col">
-            <span className="font-titulos font-bold text-lg sm:text-xl leading-tight">
-              Basureros en Guatemala
-            </span>
-            <span className="text-xs text-texto-secundario font-medium">
-              Monitoreo ciudadano y satelital
-            </span>
-          </div>
+        <Link href="/" className="flex items-center rounded-md p-1" aria-label="Frijol Tech, ir al inicio">
+          <img src="/marca/logo-menta-blanco.svg" alt="" className="h-14 w-auto sm:h-16" />
         </Link>
 
         {/* Navegación Escritorio */}
         <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-2">
           {ENLACES.map((enlace) => {
-            const Icono = enlace.icono;
-            const activo = pathname === enlace.ruta;
-
-            if (enlace.destacado) {
-              return (
-                <Link
-                  key={enlace.ruta}
-                  href={enlace.ruta}
-                  className={`ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-md font-semibold text-base transition-all shadow-sm ${
-                    activo
-                      ? 'bg-alerta-hover text-white ring-2 ring-alerta'
-                      : 'bg-alerta text-white hover:bg-alerta-hover'
-                  }`}
-                >
-                  <Icono className="w-5 h-5" />
-                  {enlace.texto}
-                </Link>
-              );
-            }
-
+            const activo = esActivo(enlace.ruta);
             return (
               <Link
                 key={enlace.ruta}
                 href={enlace.ruta}
-                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-md text-base font-medium transition-colors ${
-                  activo
-                    ? 'bg-principal-suave text-principal font-bold'
-                    : 'text-texto hover:bg-fondo hover:text-principal'
+                aria-current={activo ? 'page' : undefined}
+                className={`inline-flex min-h-[48px] items-center rounded-md px-4 text-lg font-semibold transition-colors ${
+                  activo ? 'bg-white/10 text-marca-menta' : 'text-white hover:bg-white/10'
                 }`}
               >
-                <Icono className="w-4 h-4" />
                 {enlace.texto}
               </Link>
             );
           })}
         </nav>
 
+        <Link
+          href={CTA.ruta}
+          aria-current={esActivo(CTA.ruta) ? 'page' : undefined}
+          className="hidden md:inline-flex min-h-[56px] items-center gap-2 rounded-xl bg-marca-menta px-6 text-lg font-semibold text-marca-oscuro transition-colors hover:bg-marca-menta-hover"
+        >
+          <Megaphone className="h-5 w-5" aria-hidden="true" />
+          {CTA.texto}
+        </Link>
+
         {/* Botón Móvil */}
         <button
           type="button"
           onClick={() => setMenuAbierto(!menuAbierto)}
-          className="md:hidden p-3 rounded-lg text-texto hover:bg-fondo focus:ring-2 focus:ring-principal"
+          className="md:hidden p-3 rounded-lg text-white hover:bg-white/10"
           aria-label={menuAbierto ? 'Cerrar menú' : 'Abrir menú'}
           aria-expanded={menuAbierto}
+          aria-controls="menu-movil"
         >
           {menuAbierto ? <X className="w-7 h-7" /> : <Menu className="w-7 h-7" />}
         </button>
@@ -92,29 +70,36 @@ export function Header() {
 
       {/* Menú desplegable Móvil */}
       {menuAbierto && (
-        <div className="md:hidden bg-superficie border-b border-borde px-4 pt-2 pb-6 space-y-2 animate-fadeIn shadow-lg">
+        <nav
+          id="menu-movil"
+          aria-label="Navegación principal"
+          className="md:hidden border-t border-white/10 bg-marca-oscuro px-4 pt-2 pb-6 space-y-2"
+        >
           {ENLACES.map((enlace) => {
-            const Icono = enlace.icono;
-            const activo = pathname === enlace.ruta;
+            const activo = esActivo(enlace.ruta);
             return (
               <Link
                 key={enlace.ruta}
                 href={enlace.ruta}
                 onClick={() => setMenuAbierto(false)}
-                className={`flex items-center gap-3 px-4 py-3.5 rounded-md text-lg font-medium transition-colors min-h-[52px] ${
-                  enlace.destacado
-                    ? 'bg-alerta text-white font-bold'
-                    : activo
-                    ? 'bg-principal-suave text-principal font-bold'
-                    : 'text-texto hover:bg-fondo'
+                aria-current={activo ? 'page' : undefined}
+                className={`flex min-h-[56px] items-center rounded-md px-4 text-lg font-semibold ${
+                  activo ? 'bg-white/10 text-marca-menta' : 'text-white hover:bg-white/10'
                 }`}
               >
-                <Icono className="w-5 h-5" />
                 {enlace.texto}
               </Link>
             );
           })}
-        </div>
+          <Link
+            href={CTA.ruta}
+            onClick={() => setMenuAbierto(false)}
+            className="flex min-h-[56px] items-center gap-2 rounded-xl bg-marca-menta px-4 text-lg font-semibold text-marca-oscuro"
+          >
+            <Megaphone className="h-5 w-5" aria-hidden="true" />
+            {CTA.texto}
+          </Link>
+        </nav>
       )}
     </header>
   );
