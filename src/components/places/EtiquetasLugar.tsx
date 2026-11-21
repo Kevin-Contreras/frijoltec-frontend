@@ -1,16 +1,15 @@
 import { Droplets, Waves } from 'lucide-react';
 import type { Lugar } from '@/types/lugar';
 import { estadoAgua, formatearDistancia } from '@/lib/formato';
+import { getEstadoGestion } from '@/lib/gestion-ejemplo';
+import { EtiquetaEstado } from '@/components/gestion/EtiquetaEstado';
 
-/** "Nadie lo ha revisado" / "Ya lo revisaron". */
+/**
+ * Estado del lugar: "Nadie lo ha revisado", "Están trabajando en él", "Ya lo limpiaron"…
+ * BOSQUEJO: el estado sale de los datos de ejemplo de `gestion-ejemplo.ts`.
+ */
 export function EtiquetaRevision({ lugar, className = '' }: { lugar: Lugar; className?: string }) {
-  return (
-    <span
-      className={`inline-flex items-center rounded-full bg-marca-menta px-4 py-1.5 text-lg font-semibold text-marca-oscuro ${className}`}
-    >
-      {lugar.verificadoEnCampo ? 'Ya lo revisaron' : 'Nadie lo ha revisado'}
-    </span>
-  );
+  return <EtiquetaEstado estado={getEstadoGestion(lugar.id)} className={className} />;
 }
 
 /**

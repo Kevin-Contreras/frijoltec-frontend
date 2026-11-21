@@ -7,6 +7,8 @@ interface PasoDetallesVisitaProps {
   onNotas: (v: string) => void;
   contacto: string;
   onContacto: (v: string) => void;
+  avisar: boolean;
+  onAvisar: (v: boolean) => void;
   onAtras: () => void;
   onEnviar: () => void;
 }
@@ -65,8 +67,23 @@ export function PasoDetallesVisita(props: PasoDetallesVisitaProps) {
         autoComplete="off"
         value={props.contacto}
         onChange={(e) => props.onContacto(e.target.value)}
-        className={`${campo} mb-8 min-h-[60px]`}
+        className={`${campo} mb-7 min-h-[60px]`}
       />
+
+      <label className="mb-8 flex cursor-pointer items-start gap-4 rounded-xl border border-borde bg-superficie px-5 py-4 text-marca-oscuro">
+        <input
+          type="checkbox"
+          checked={props.avisar}
+          onChange={(e) => props.onAvisar(e.target.checked)}
+          className="mt-1 h-6 w-6 shrink-0 accent-[#142A27]"
+        />
+        <span>
+          <span className="block text-xl font-semibold">Avisar a la municipalidad y a los grupos de la zona</span>
+          <span className="block text-base text-texto-secundario">
+            Verán lo que contaste. Si dejaste teléfono o correo, solo ellos lo podrán ver.
+          </span>
+        </span>
+      </label>
 
       <div className="flex flex-wrap gap-4">
         <button

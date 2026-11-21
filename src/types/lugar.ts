@@ -46,5 +46,7 @@ export interface ReporteLocal {
   telefono?: string;
   /** Día de la visita, formato AAAA-MM-DD. */
   fechaVisita?: string;
+  /** La persona pidió avisar a la municipalidad y organizaciones de la zona. */
+  avisarOrganizaciones?: boolean;
   fecha: string;
 }

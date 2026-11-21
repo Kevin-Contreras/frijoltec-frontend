@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export function Footer() {
   return (
     <footer className="mt-auto bg-marca-oscuro py-12 font-marca text-white">
@@ -23,6 +25,13 @@ export function Footer() {
               CC BY-NC 4.0
             </a>
             . Lugares vistos por satélite que nadie ha revisado en persona todavía.
+          </p>
+
+          <p className="mb-6 text-lg">
+            ¿Eres de una municipalidad o asociación?{' '}
+            <Link href="/organizaciones" className="font-semibold text-marca-menta underline underline-offset-2">
+              Ayuda a limpiar estos lugares
+            </Link>
           </p>
 
           <p className="m-0 flex items-center gap-3 text-lg font-bold">
