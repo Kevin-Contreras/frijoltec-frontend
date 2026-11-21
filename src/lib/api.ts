@@ -48,15 +48,29 @@ export interface ResumenBackend {
   porTipoAguaCercana: { tipoAguaCercana: string; sitios: number }[];
 }
 
+export interface FotoReporteBackend {
+  id: string;
+  reporteId?: string;
+  url: string;
+  creadoEn?: string;
+}
+
 export interface ReporteBackend {
   id: string;
   sitioId: string;
   resultado: 'hay_basura' | 'no_hay_basura' | 'no_pude_entrar';
-  notas?: string;
-  telefono?: string;
   fechaVisita?: string;
-  fotos?: { id: string; url: string }[];
+  comentario?: string | null;
+  notas?: string | null;
+  contacto?: string | null;
+  telefono?: string | null;
+  fotos?: FotoReporteBackend[];
   creadoEn: string;
+  sitio?: {
+    id: string;
+    lugar: string;
+    departamento: string;
+  };
 }
 
 export interface ComentarioBackend {
@@ -96,7 +110,13 @@ export function adaptarSitioALugar(s: SitioBackend | SitioListaBackend): Lugar {
     fuentes: (s as SitioBackend).fuentes || 'Global Plastic Watch',
     verificadoEnCampo: (s as SitioBackend).verificadoEnCampo ?? (s as SitioListaBackend).revisado ?? false,
     licencia: (s as SitioBackend).licencia || 'CC BY-NC 4.0',
-    reportes: (s as SitioBackend).reportes || [],
+    reportes: ((s as SitioBackend).reportes || []).map((r) => ({
+      id: r.id,
+      resultado: r.resultado,
+      notas: r.comentario || r.notas || null,
+      fechaVisita: r.fechaVisita,
+      fotos: r.fotos?.map((f) => ({ id: f.id, url: f.url })),
+    })),
   };
 }
 

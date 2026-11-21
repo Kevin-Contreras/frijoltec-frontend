@@ -25,7 +25,7 @@ export interface Lugar {
   reportes?: Array<{
     id: string;
     resultado: string;
-    notas?: string;
+    notas?: string | null;
     fechaVisita?: string;
     fotos?: Array<{ id: string; url: string }>;
   }>;

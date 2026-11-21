@@ -76,9 +76,17 @@ export function DetalleLugarView({ lugar, lugares }: DetalleLugarViewProps) {
           {/* Reportes de campo verificados */}
           {lugar.reportes && lugar.reportes.length > 0 && (
             <div className="rounded-[20px] border border-borde bg-superficie p-6 shadow-sm">
-              <h3 className="mb-4 font-marca text-2xl font-bold text-marca-oscuro">
-                Reportes de campo ({lugar.reportes.length})
-              </h3>
+              <div className="mb-4 flex items-center justify-between gap-2">
+                <h3 className="font-marca text-2xl font-bold text-marca-oscuro">
+                  Reportes de campo ({lugar.reportes.length})
+                </h3>
+                <Link
+                  href={`/reportes?sitio_id=${encodeURIComponent(lugar.id)}`}
+                  className="text-sm font-semibold text-marca-oscuro hover:text-marca-verde hover:underline"
+                >
+                  Ver todos &rarr;
+                </Link>
+              </div>
               <ul className="m-0 flex list-none flex-col gap-4 p-0">
                 {lugar.reportes.map((r) => (
                   <li key={r.id} className="rounded-xl border border-borde p-4">

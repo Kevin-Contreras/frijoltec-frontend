@@ -8,6 +8,7 @@ import { Megaphone, Menu, X } from 'lucide-react';
 const ENLACES: { ruta: string; texto: string; tambienActivoEn?: string[] }[] = [
   { ruta: '/mapa', texto: 'Mapa' },
   { ruta: '/lista', texto: 'Lista' },
+  { ruta: '/reportes', texto: 'Reportes' },
   { ruta: '/resumen', texto: 'Resumen' },
   // Modo municipalidad / asociaciones (bosquejo). El panel también cuenta como esta pestaña.
   { ruta: '/organizaciones', texto: 'Organizaciones', tambienActivoEn: ['/panel'] },
