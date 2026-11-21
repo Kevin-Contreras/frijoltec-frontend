@@ -159,8 +159,24 @@ export async function fetchReportes(sitioId?: string, resultado?: string): Promi
   return apiFetch<ReporteBackend[]>(`/reportes${q}`);
 }
 
+export interface CrearReportePayload {
+  sitioId: string;
+  resultado: 'hay_basura' | 'no_hay_basura' | 'no_pude_entrar';
+  fechaVisita: string; // YYYY-MM-DD
+  comentario?: string;
+  contacto?: string;
+  foto?: string;
+}
+
 export async function fetchReporteById(id: string): Promise<ReporteBackend> {
   return apiFetch<ReporteBackend>(`/reportes/${encodeURIComponent(id)}`);
+}
+
+export async function crearReporte(payload: CrearReportePayload): Promise<ReporteBackend> {
+  return apiFetch<ReporteBackend>('/reportes', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
 }
 
 // 6. Comentarios anónimos

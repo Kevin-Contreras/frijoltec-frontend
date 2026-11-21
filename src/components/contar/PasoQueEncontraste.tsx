@@ -22,6 +22,14 @@ export function PasoQueEncontraste({ estado, onEstado, foto, onFoto, onSiguiente
   const elegirFoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     const archivo = e.target.files?.[0];
     if (!archivo) return;
+
+    // Validación de límite de tamaño (3 MB máximo para la API)
+    if (archivo.size > 2.8 * 1024 * 1024) {
+      alert('La foto seleccionada supera los 3 MB. Por favor elige una imagen más ligera o comprimida.');
+      e.target.value = '';
+      return;
+    }
+
     const lector = new FileReader();
     lector.onloadend = () => onFoto(lector.result as string);
     lector.readAsDataURL(archivo);

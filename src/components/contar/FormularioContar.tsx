@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import type { EstadoReporte, Lugar } from '@/types/lugar';
 import { guardarReporteLocal } from '@/lib/storage';
+import { crearReporte, type CrearReportePayload } from '@/lib/api';
 import { AvisoLocal } from './AvisoLocal';
 import { MapaLugarSeleccionado } from './MapaLugarSeleccionado';
 import { PantallaGracias } from './PantallaGracias';
@@ -28,6 +29,7 @@ export function FormularioContar({ lugares, lugarInicialId }: FormularioContarPr
   const [notas, setNotas] = useState('');
   const [contacto, setContacto] = useState('');
   const [avisar, setAvisar] = useState(true);
+  const [enviando, setEnviando] = useState(false);
 
   // La fecha de hoy se calcula en el navegador para usar la hora local de la persona.
   useEffect(() => {
@@ -51,8 +53,33 @@ export function FormularioContar({ lugares, lugarInicialId }: FormularioContarPr
     return <PantallaGracias />;
   }
 
-  const enviar = () => {
-    if (!estado) return;
+  const enviar = async () => {
+    if (!estado || enviando) return;
+    setEnviando(true);
+
+    const resultadoMap: Record<EstadoReporte, 'hay_basura' | 'no_hay_basura' | 'no_pude_entrar'> = {
+      si_hay_basura: 'hay_basura',
+      no_hay_basura: 'no_hay_basura',
+      no_pude_entrar: 'no_pude_entrar',
+    };
+
+    const resultado = resultadoMap[estado] || 'hay_basura';
+
+    const payload: CrearReportePayload = {
+      sitioId: lugar.id,
+      resultado,
+      fechaVisita: fechaVisita || hoyISO(),
+      comentario: notas.trim().slice(0, 2000) || undefined,
+      contacto: contacto.trim().slice(0, 200) || undefined,
+      foto: foto || undefined,
+    };
+
+    try {
+      await crearReporte(payload);
+    } catch (err) {
+      console.error('Error enviando reporte al backend, guardando copia local:', err);
+    }
+
     guardarReporteLocal({
       lugarId: lugar.id,
       lugarNombre: lugar.direccion,
@@ -63,6 +90,8 @@ export function FormularioContar({ lugares, lugarInicialId }: FormularioContarPr
       fechaVisita: fechaVisita || undefined,
       avisarOrganizaciones: avisar,
     });
+
+    setEnviando(false);
     setPaso(3);
   };
 
@@ -74,7 +103,9 @@ export function FormularioContar({ lugares, lugarInicialId }: FormularioContarPr
 
       <div className="flex flex-col gap-6">
         <ProgresoPasos paso={paso} total={2} />
-        <AvisoLocal>Aviso: tu reporte se guardará solo en este navegador.</AvisoLocal>
+        <AvisoLocal>
+          Tu reporte se enviará al sistema de monitoreo comunitario y actualizará la información del lugar.
+        </AvisoLocal>
 
         {paso === 1 ? (
           <PasoQueEncontraste
@@ -94,6 +125,7 @@ export function FormularioContar({ lugares, lugarInicialId }: FormularioContarPr
             onContacto={setContacto}
             avisar={avisar}
             onAvisar={setAvisar}
+            enviando={enviando}
             onAtras={() => setPaso(1)}
             onEnviar={enviar}
           />

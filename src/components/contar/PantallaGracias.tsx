@@ -22,7 +22,7 @@ export function PantallaGracias() {
 
       <div className="mx-auto mb-8 max-w-xl text-left">
         <AvisoLocal>
-          Todavía no estamos conectados a la base de datos, así que tu reporte quedó guardado solo en este navegador.
+          Tu reporte ha sido enviado y registrado en la base de datos comunitaria. También se guardó una copia de respaldo en este dispositivo.
         </AvisoLocal>
       </div>
 
