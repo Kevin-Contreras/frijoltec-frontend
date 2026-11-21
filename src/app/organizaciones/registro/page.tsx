@@ -12,7 +12,7 @@ export default function RegistroOrganizacionPage() {
     <div className="w-full flex-1 bg-marca-fondo font-marca">
       <div className="max-w-3xl mx-auto flex flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14">
         <BannerBosquejo />
-        <div>
+        <div className="animate-fade-in-up">
           <h1 className="mb-3 font-marca text-4xl font-bold text-marca-oscuro tracking-normal">
             Registrar mi organización
           </h1>

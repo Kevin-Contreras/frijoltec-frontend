@@ -1,6 +1,7 @@
 import { Camera, Lock } from 'lucide-react';
 import type { EstadoReporte } from '@/types/lugar';
 import { formatearFecha, type AvisoVecino } from '@/lib/gestion-ejemplo';
+import { Reveal } from '@/components/ui/Reveal';
 
 const RESPUESTA: Record<EstadoReporte, string> = {
   si_hay_basura: 'Sí, hay basura',
@@ -16,8 +17,10 @@ export function AvisosVecinos({ avisos }: { avisos: AvisoVecino[] }) {
 
   return (
     <ul className="m-0 flex list-none flex-col gap-4 p-0">
-      {avisos.map((a) => (
-        <li key={a.id} className="rounded-2xl border border-borde bg-superficie p-5">
+      {avisos.map((a, i) => (
+        <li key={a.id}>
+        <Reveal animation="fade-up" delay={Math.min(i * 80, 400)} duration={500}>
+        <div className="rounded-2xl border border-borde bg-superficie p-5 card-interactive hover:border-marca-verde/40">
           <div className="mb-2 flex flex-wrap items-center justify-between gap-2">
             <span className="rounded-full bg-marca-menta px-3 py-1 text-base font-semibold text-marca-oscuro">
               {RESPUESTA[a.respuesta]}
@@ -39,6 +42,8 @@ export function AvisosVecinos({ avisos }: { avisos: AvisoVecino[] }) {
               <span>Sin datos de contacto</span>
             )}
           </p>
+        </div>
+        </Reveal>
         </li>
       ))}
     </ul>

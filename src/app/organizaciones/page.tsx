@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { Bell, ClipboardCheck, HandHelping, type LucideIcon } from 'lucide-react';
 import { BannerBosquejo } from '@/components/gestion/BannerBosquejo';
+import { Reveal } from '@/components/ui/Reveal';
 
 export const metadata: Metadata = {
   title: 'Para municipalidades y organizaciones · Basureros en Guatemala',
@@ -20,7 +21,7 @@ export default function OrganizacionesPage() {
       <div className="max-w-6xl mx-auto flex flex-col gap-10 px-4 py-10 sm:px-6 sm:py-14">
         <BannerBosquejo />
 
-        <div className="max-w-3xl">
+        <div className="max-w-3xl animate-fade-in-up">
           <h1 className="mb-4 font-marca text-4xl font-bold text-marca-oscuro tracking-normal sm:text-5xl">
             Para municipalidades y organizaciones
           </h1>
@@ -32,32 +33,38 @@ export default function OrganizacionesPage() {
 
         <ol className="m-0 grid list-none grid-cols-1 gap-5 p-0 md:grid-cols-3">
           {PASOS.map(({ icono: Icono, titulo, texto }, i) => (
-            <li key={titulo} className="rounded-[20px] border border-borde bg-superficie p-7">
-              <span className="mb-5 flex h-[60px] w-[60px] items-center justify-center rounded-xl bg-marca-menta text-marca-oscuro">
-                <Icono className="h-7 w-7" aria-hidden="true" />
-              </span>
-              <p className="mb-2 text-2xl font-bold text-marca-oscuro">
-                {i + 1}. {titulo}
-              </p>
-              <p className="m-0 text-lg text-texto-secundario">{texto}</p>
+            <li key={titulo} className="h-full">
+              <Reveal animation="fade-up" delay={i * 120} duration={600} className="h-full">
+                <div className="group h-full rounded-[20px] border border-borde bg-superficie p-7 shadow-sm card-interactive hover:border-marca-verde/40">
+                  <span className="mb-5 flex h-[60px] w-[60px] items-center justify-center rounded-xl bg-marca-menta text-marca-oscuro transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                    <Icono className="h-7 w-7" aria-hidden="true" />
+                  </span>
+                  <p className="mb-2 text-2xl font-bold text-marca-oscuro">
+                    {i + 1}. {titulo}
+                  </p>
+                  <p className="m-0 text-lg text-texto-secundario">{texto}</p>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ol>
 
-        <div className="flex flex-wrap gap-4">
-          <Link
-            href="/organizaciones/registro"
-            className="inline-flex min-h-[56px] items-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white hover:bg-marca-oscuro-hover"
-          >
-            Registrar mi organización
-          </Link>
-          <Link
-            href="/organizaciones/entrar"
-            className="inline-flex min-h-[56px] items-center rounded-xl border border-marca-oscuro bg-superficie px-6 text-xl font-semibold text-marca-oscuro hover:bg-marca-menta-suave"
-          >
-            Ya tengo cuenta
-          </Link>
-        </div>
+        <Reveal animation="fade-up" delay={360}>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="/organizaciones/registro"
+              className="inline-flex min-h-[56px] items-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white shadow-sm btn-bounce hover:bg-marca-oscuro-hover"
+            >
+              Registrar mi organización
+            </Link>
+            <Link
+              href="/organizaciones/entrar"
+              className="inline-flex min-h-[56px] items-center rounded-xl border border-marca-oscuro bg-superficie px-6 text-xl font-semibold text-marca-oscuro btn-bounce hover:bg-marca-menta-suave"
+            >
+              Ya tengo cuenta
+            </Link>
+          </div>
+        </Reveal>
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const campo =
-  'min-h-[56px] w-full rounded-xl border border-borde-fuerte bg-superficie px-4 text-lg text-marca-oscuro focus:border-marca-oscuro';
+  'min-h-[56px] w-full rounded-xl border border-borde-fuerte bg-superficie px-4 text-lg text-marca-oscuro transition-shadow focus:border-marca-oscuro focus:shadow-md';
 
 /** BOSQUEJO: no hay inicio de sesión real; el botón lleva directo al panel de ejemplo. */
 export default function EntrarOrganizacionPage() {
@@ -15,9 +15,9 @@ export default function EntrarOrganizacionPage() {
     <div className="w-full flex-1 bg-marca-fondo font-marca">
       <div className="max-w-xl mx-auto flex flex-col gap-8 px-4 py-10 sm:px-6 sm:py-14">
         <BannerBosquejo />
-        <h1 className="m-0 font-marca text-4xl font-bold text-marca-oscuro tracking-normal">Entrar</h1>
+        <h1 className="m-0 font-marca text-4xl font-bold text-marca-oscuro tracking-normal animate-fade-in-up">Entrar</h1>
 
-        <div className="flex flex-col gap-6 rounded-[20px] border border-borde bg-superficie p-6 sm:p-8">
+        <div className="flex flex-col gap-6 rounded-[20px] border border-borde bg-superficie p-6 shadow-sm sm:p-8 animate-scale-up">
           <div>
             <label htmlFor="entrar-correo" className="mb-2 block text-lg font-semibold text-marca-oscuro">
               Correo
@@ -32,7 +32,7 @@ export default function EntrarOrganizacionPage() {
           </div>
           <Link
             href="/panel"
-            className="inline-flex min-h-[56px] items-center justify-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white hover:bg-marca-oscuro-hover"
+            className="inline-flex min-h-[56px] items-center justify-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white shadow-sm btn-bounce hover:bg-marca-oscuro-hover"
           >
             Entrar
           </Link>

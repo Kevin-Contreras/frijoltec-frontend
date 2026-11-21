@@ -17,7 +17,10 @@ export function ProgresoPasos({ paso, total }: ProgresoPasosProps) {
         aria-label={`Paso ${paso} de ${total}`}
         className="h-2.5 w-full overflow-hidden rounded-full bg-marca-menta"
       >
-        <div className="h-full rounded-full bg-marca-oscuro" style={{ width: `${(paso / total) * 100}%` }} />
+        <div
+          className="h-full rounded-full bg-marca-oscuro transition-[width] duration-700"
+          style={{ width: `${(paso / total) * 100}%`, transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+        />
       </div>
     </div>
   );

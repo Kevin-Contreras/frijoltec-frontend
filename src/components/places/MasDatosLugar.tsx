@@ -23,7 +23,7 @@ export function MasDatosLugar({ lugar }: { lugar: Lugar }) {
   };
 
   return (
-    <div className="rounded-[20px] border border-borde bg-superficie font-marca">
+    <div className="rounded-[20px] border border-borde bg-superficie font-marca shadow-sm transition-all duration-300 hover:border-marca-verde/40 hover:shadow-md">
       <button
         type="button"
         onClick={() => setAbierto(!abierto)}
@@ -33,13 +33,13 @@ export function MasDatosLugar({ lugar }: { lugar: Lugar }) {
       >
         Más datos del lugar
         <ChevronDown
-          className={`h-6 w-6 shrink-0 transition-transform ${abierto ? 'rotate-180' : ''}`}
+          className={`h-6 w-6 shrink-0 transition-transform duration-300 ${abierto ? 'rotate-180' : ''}`}
           aria-hidden="true"
         />
       </button>
 
       {abierto && (
-        <dl id="mas-datos-lugar" className="m-0 space-y-4 px-6 pb-6 text-lg text-marca-oscuro">
+        <dl id="mas-datos-lugar" className="m-0 space-y-4 px-6 pb-6 text-lg text-marca-oscuro animate-fade-in-down">
           <div>
             <dt className="text-base text-texto-secundario">Código</dt>
             <dd className="m-0">{lugar.id}</dd>
@@ -51,9 +51,15 @@ export function MasDatosLugar({ lugar }: { lugar: Lugar }) {
               <button
                 type="button"
                 onClick={copiar}
-                className="inline-flex min-h-[52px] items-center gap-2 rounded-xl border border-borde-fuerte bg-superficie px-4 text-base font-bold hover:bg-marca-menta-suave"
+                className={`inline-flex min-h-[52px] items-center gap-2 rounded-xl border px-4 text-base font-bold btn-bounce ${
+                  copiado ? 'border-marca-oscuro bg-marca-menta' : 'border-borde-fuerte bg-superficie hover:bg-marca-menta-suave'
+                }`}
               >
-                {copiado ? <Check className="h-5 w-5" aria-hidden="true" /> : <Copy className="h-5 w-5" aria-hidden="true" />}
+                {copiado ? (
+                  <Check className="h-5 w-5 animate-pop" aria-hidden="true" />
+                ) : (
+                  <Copy className="h-5 w-5" aria-hidden="true" />
+                )}
                 {copiado ? 'Copiado' : 'Copiar'}
               </button>
             </dd>

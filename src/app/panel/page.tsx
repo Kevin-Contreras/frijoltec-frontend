@@ -10,6 +10,8 @@ import {
 import { BannerBosquejo } from '@/components/gestion/BannerBosquejo';
 import { EncabezadoPanel } from '@/components/gestion/EncabezadoPanel';
 import { BandejaAvisos, type FilaBandeja } from '@/components/gestion/BandejaAvisos';
+import { Reveal } from '@/components/ui/Reveal';
+import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 
 export const metadata: Metadata = {
   title: 'Panel de organización · Basureros en Guatemala',
@@ -53,10 +55,16 @@ export default function PanelPage() {
         <h1 className="sr-only">Panel de {org.nombre}</h1>
 
         <ul className="m-0 grid list-none grid-cols-1 gap-5 p-0 md:grid-cols-3">
-          {resumen.map((r) => (
-            <li key={r.frase} className="rounded-[20px] border border-borde bg-superficie p-6">
-              <span className="block text-5xl font-bold leading-none text-marca-oscuro">{r.numero}</span>
-              <span className="mt-3 block text-xl text-texto-secundario">{r.frase}</span>
+          {resumen.map((r, i) => (
+            <li key={r.frase} className="h-full">
+              <Reveal animation="fade-up" delay={i * 120} duration={600} className="h-full">
+                <div className="h-full rounded-[20px] border border-borde bg-superficie p-6 shadow-sm card-interactive hover:border-marca-verde/40">
+                  <span className="block text-5xl font-bold leading-none text-marca-oscuro">
+                    <AnimatedCounter value={r.numero} duration={1000 + i * 200} />
+                  </span>
+                  <span className="mt-3 block text-xl text-texto-secundario">{r.frase}</span>
+                </div>
+              </Reveal>
             </li>
           ))}
         </ul>

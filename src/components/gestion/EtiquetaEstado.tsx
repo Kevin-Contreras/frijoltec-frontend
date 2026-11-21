@@ -22,7 +22,7 @@ export function EtiquetaEstado({ estado, className = '' }: { estado: EstadoGesti
   const Icono = ICONOS[estado];
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-lg font-semibold ${ESTILOS[estado]} ${className}`}
+      className={`inline-flex items-center gap-2 rounded-full border px-4 py-1.5 text-lg font-semibold transition-colors duration-300 ${ESTILOS[estado]} ${className}`}
     >
       <Icono className="h-5 w-5 shrink-0" aria-hidden="true" />
       {ESTADOS_GESTION[estado].texto}

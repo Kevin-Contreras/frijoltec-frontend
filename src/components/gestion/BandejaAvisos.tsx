@@ -2,7 +2,8 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { Camera, Users } from 'lucide-react';
+import { ArrowRight, Camera, Users } from 'lucide-react';
+import { Reveal } from '@/components/ui/Reveal';
 import type { EstadoGestion } from '@/lib/gestion-ejemplo';
 import { EtiquetaEstado } from './EtiquetaEstado';
 
@@ -50,10 +51,10 @@ export function BandejaAvisos({ filas }: { filas: FilaBandeja[] }) {
               role="tab"
               aria-selected={activa}
               onClick={() => setPestana(p.id)}
-              className={`inline-flex min-h-[52px] items-center gap-2 rounded-xl border px-5 text-lg font-semibold ${
+              className={`inline-flex min-h-[52px] items-center gap-2 rounded-xl border px-5 text-lg font-semibold transition-all duration-200 active:scale-95 ${
                 activa
-                  ? 'border-marca-oscuro bg-marca-oscuro text-white'
-                  : 'border-borde-fuerte bg-superficie text-marca-oscuro hover:bg-marca-menta-suave'
+                  ? 'border-marca-oscuro bg-marca-oscuro text-white shadow-md'
+                  : 'border-borde-fuerte bg-superficie text-marca-oscuro hover:-translate-y-0.5 hover:bg-marca-menta-suave hover:shadow-sm'
               }`}
             >
               {p.texto}
@@ -64,16 +65,16 @@ export function BandejaAvisos({ filas }: { filas: FilaBandeja[] }) {
       </div>
 
       {visibles.length === 0 ? (
-        <p className="rounded-[20px] border border-borde bg-superficie p-6 text-lg text-texto-secundario">
+        <p key={pestana} className="rounded-[20px] border border-borde bg-superficie p-6 text-lg text-texto-secundario animate-fade-in">
           No hay lugares en esta pestaña.
         </p>
       ) : (
-        <ul className="m-0 flex list-none flex-col gap-4 p-0">
-          {visibles.map((f) => (
-            <li
-              key={f.lugarId}
-              className="flex flex-col gap-4 rounded-[20px] border border-borde bg-superficie p-6 md:flex-row md:items-center md:justify-between"
-            >
+        // key={pestana}: al cambiar de pestaña la lista se vuelve a montar y las tarjetas entran de nuevo.
+        <ul key={pestana} className="m-0 flex list-none flex-col gap-4 p-0">
+          {visibles.map((f, index) => (
+            <li key={f.lugarId}>
+            <Reveal animation="fade-up" delay={Math.min(index * 70, 420)} duration={500}>
+            <div className="flex flex-col gap-4 rounded-[20px] border border-borde bg-superficie p-6 card-interactive hover:border-marca-verde/40 md:flex-row md:items-center md:justify-between">
               <div className="min-w-0">
                 <div className="mb-3 flex flex-wrap gap-2">
                   <EtiquetaEstado estado={f.estado} />
@@ -101,10 +102,13 @@ export function BandejaAvisos({ filas }: { filas: FilaBandeja[] }) {
               </div>
               <Link
                 href={`/panel/lugar/${f.lugarId}`}
-                className="inline-flex min-h-[56px] shrink-0 items-center justify-center rounded-xl bg-marca-oscuro px-6 text-lg font-bold text-white hover:bg-marca-oscuro-hover"
+                className="group/boton inline-flex min-h-[56px] shrink-0 items-center justify-center gap-2 rounded-xl bg-marca-oscuro px-6 text-lg font-bold text-white shadow-sm btn-bounce hover:bg-marca-oscuro-hover"
               >
                 Ver y actualizar
+                <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover/boton:translate-x-1" aria-hidden="true" />
               </Link>
+            </div>
+            </Reveal>
             </li>
           ))}
         </ul>

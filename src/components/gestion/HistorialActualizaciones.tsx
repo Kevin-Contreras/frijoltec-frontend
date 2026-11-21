@@ -1,6 +1,7 @@
 import { Camera } from 'lucide-react';
 import { TIPOS_ORGANIZACION, type EstadoGestion, type TipoOrganizacion } from '@/lib/gestion-ejemplo';
 import { EtiquetaEstado } from './EtiquetaEstado';
+import { Reveal } from '@/components/ui/Reveal';
 
 export interface ActualizacionVista {
   id: string;
@@ -22,8 +23,15 @@ export function HistorialActualizaciones({ items }: { items: ActualizacionVista[
 
   return (
     <ol className="m-0 flex list-none flex-col gap-4 p-0">
-      {items.map((u) => (
-        <li key={u.id} className="rounded-2xl border border-borde bg-superficie p-5">
+      {items.map((u, i) => (
+        <li key={u.id}>
+        {/* Las nuevas entran con "pop" al publicarlas; las existentes aparecen al hacer scroll. */}
+        <Reveal animation={u.nueva ? 'scale-up' : 'fade-up'} delay={u.nueva ? 0 : Math.min(i * 80, 400)} duration={500}>
+        <div
+          className={`rounded-2xl border bg-superficie p-5 card-interactive ${
+            u.nueva ? 'border-marca-verde shadow-md' : 'border-borde hover:border-marca-verde/40'
+          }`}
+        >
           <div className="mb-3 flex flex-wrap items-center gap-2">
             <EtiquetaEstado estado={u.estado} />
             {u.nueva && (
@@ -43,6 +51,8 @@ export function HistorialActualizaciones({ items }: { items: ActualizacionVista[
               </span>
             )}
           </p>
+        </div>
+        </Reveal>
         </li>
       ))}
     </ol>

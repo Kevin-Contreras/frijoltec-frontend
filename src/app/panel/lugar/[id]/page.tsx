@@ -37,13 +37,13 @@ export default async function PanelLugarPage({ params }: PanelLugarProps) {
 
         <Link
           href="/panel"
-          className="inline-flex min-h-[48px] items-center gap-2 self-start text-lg font-semibold text-marca-oscuro hover:underline"
+          className="group inline-flex min-h-[48px] items-center gap-2 self-start text-lg font-semibold text-marca-oscuro hover:underline"
         >
-          <ArrowLeft className="h-5 w-5" aria-hidden="true" />
+          <ArrowLeft className="h-5 w-5 transition-transform duration-300 group-hover:-translate-x-1" aria-hidden="true" />
           Volver a los lugares
         </Link>
 
-        <div>
+        <div className="animate-fade-in-up">
           <div className="mb-4 flex flex-wrap gap-3">
             <EtiquetaEstado estado={getEstadoGestion(lugar.id)} />
             <EtiquetaAgua lugar={lugar} />
