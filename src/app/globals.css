@@ -1,0 +1,70 @@
+@import 'leaflet/dist/leaflet.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-fondo: #f5f7f6;
+  --color-superficie: #ffffff;
+  --color-texto: #15201c;
+  --color-texto-secundario: #4d5b55;
+  --color-borde: #dde3e0;
+  --color-borde-fuerte: #b9c4bf;
+  --color-principal: #1c5d73;
+  --color-principal-suave: #e3eef1;
+  --color-alerta: #b4471a;
+  --color-alerta-suave: #fbeae1;
+  --color-alerta-texto: #8a3412;
+  --color-sin-dato: #8a9590;
+
+  --font-space-grotesk: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-inter: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  --radio-sm: 10px;
+  --radio-md: 12px;
+  --radio-lg: 16px;
+  --alto-boton: 56px;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.55;
+  font-family: var(--font-inter);
+  margin: 0;
+  min-height: 100dvh;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-space-grotesk);
+  color: var(--color-texto);
+  letter-spacing: -0.02em;
+}
+
+/* Enfoque accesible */
+:focus-visible {
+  outline: 3px solid var(--color-principal);
+  outline-offset: 2px;
+}
+
+/* Leaflet fix */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  font-family: inherit;
+}
+
+/* Custom Leaflet pulse marker */
+.custom-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.custom-marker:hover {
+  transform: scale(1.2);
+}
