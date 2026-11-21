@@ -30,6 +30,7 @@ export function PasoQueEncontraste({ estado, onEstado, foto, onFoto, onSiguiente
 
   return (
     <form
+      className="animate-fade-in-up"
       onSubmit={(e) => {
         e.preventDefault();
         if (estado) onSiguiente();
@@ -43,10 +44,10 @@ export function PasoQueEncontraste({ estado, onEstado, foto, onFoto, onSiguiente
             return (
               <label
                 key={op.valor}
-                className={`flex min-h-[68px] cursor-pointer items-center gap-4 rounded-xl border px-5 text-xl font-semibold text-marca-oscuro transition-colors has-[:focus-visible]:outline has-[:focus-visible]:outline-[3px] has-[:focus-visible]:outline-marca-verde ${
+                className={`flex min-h-[68px] cursor-pointer items-center gap-4 rounded-xl border px-5 text-xl font-semibold text-marca-oscuro transition-all duration-200 active:scale-[0.99] has-[:focus-visible]:outline has-[:focus-visible]:outline-[3px] has-[:focus-visible]:outline-marca-verde ${
                   marcada
-                    ? 'border-marca-oscuro bg-marca-menta-suave'
-                    : 'border-borde bg-superficie hover:border-borde-fuerte'
+                    ? 'border-marca-oscuro bg-marca-menta-suave shadow-sm'
+                    : 'border-borde bg-superficie hover:-translate-y-0.5 hover:border-borde-fuerte hover:shadow-sm'
                 }`}
               >
                 <input
@@ -68,14 +69,14 @@ export function PasoQueEncontraste({ estado, onEstado, foto, onFoto, onSiguiente
         Sube una foto <span className="font-normal text-texto-secundario">(opcional)</span>
       </p>
       <div className="flex flex-wrap items-center gap-4">
-        <label className="inline-flex min-h-[56px] cursor-pointer items-center gap-3 rounded-xl border border-marca-oscuro bg-superficie px-6 text-xl font-semibold text-marca-oscuro hover:bg-marca-menta-suave has-[:focus-visible]:outline has-[:focus-visible]:outline-[3px] has-[:focus-visible]:outline-marca-verde">
+        <label className="inline-flex min-h-[56px] cursor-pointer items-center gap-3 rounded-xl border border-marca-oscuro bg-superficie px-6 text-xl font-semibold text-marca-oscuro btn-bounce hover:bg-marca-menta-suave has-[:focus-visible]:outline has-[:focus-visible]:outline-[3px] has-[:focus-visible]:outline-marca-verde">
           <ImagePlus className="h-6 w-6" aria-hidden="true" />
           {foto ? 'Cambiar foto' : 'Elegir foto'}
           <input type="file" accept="image/*" onChange={elegirFoto} className="sr-only" />
         </label>
 
         {foto && (
-          <div className="relative h-20 w-20 overflow-hidden rounded-xl border border-borde">
+          <div className="relative h-20 w-20 overflow-hidden rounded-xl border border-borde animate-scale-up">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={foto} alt="Foto que elegiste" className="h-full w-full object-cover" />
             <button
@@ -93,7 +94,7 @@ export function PasoQueEncontraste({ estado, onEstado, foto, onFoto, onSiguiente
       <button
         type="submit"
         disabled={!estado}
-        className="mt-10 inline-flex min-h-[56px] items-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white transition-colors hover:bg-marca-oscuro-hover disabled:cursor-not-allowed disabled:bg-sin-dato"
+        className="mt-10 inline-flex min-h-[56px] items-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white shadow-sm btn-bounce hover:bg-marca-oscuro-hover disabled:cursor-not-allowed disabled:bg-sin-dato disabled:shadow-none disabled:hover:translate-y-0"
       >
         Siguiente
       </button>

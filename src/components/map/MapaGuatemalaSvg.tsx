@@ -64,6 +64,16 @@ export function MapaGuatemalaSvg({ lugares, seleccionadoId, zoom = 1, className 
       )}
       {seleccionado && (
         <g>
+          {/* Onda que se expande para llamar la atención sobre el lugar elegido */}
+          <circle
+            cx={seleccionado.x}
+            cy={seleccionado.y}
+            r={24 * s}
+            fill="none"
+            stroke="#69AB90"
+            strokeWidth={4 * s}
+            className="mapa-pulso"
+          />
           <circle
             cx={seleccionado.x}
             cy={seleccionado.y}

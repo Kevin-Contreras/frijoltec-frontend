@@ -45,15 +45,20 @@ export function ActualizarLugar({ organizacion, historialInicial }: ActualizarLu
 
   return (
     <div className="flex flex-col gap-8">
-      <form onSubmit={publicar} className="flex flex-col gap-6 rounded-[20px] border border-borde bg-superficie p-6">
+      <form
+        onSubmit={publicar}
+        className="flex flex-col gap-6 rounded-[20px] border border-borde bg-superficie p-6 shadow-sm animate-fade-in-up"
+      >
         <fieldset className="m-0 border-0 p-0">
           <legend className="mb-4 p-0 font-marca text-2xl font-bold text-marca-oscuro">Dar actualización</legend>
           <div className="flex flex-col gap-3">
             {OPCIONES.map((op) => (
               <label
                 key={op}
-                className={`flex min-h-[60px] cursor-pointer items-start gap-4 rounded-xl border px-5 py-3 text-marca-oscuro ${
-                  estado === op ? 'border-marca-oscuro bg-marca-menta-suave' : 'border-borde bg-superficie'
+                className={`flex min-h-[60px] cursor-pointer items-start gap-4 rounded-xl border px-5 py-3 text-marca-oscuro transition-all duration-200 active:scale-[0.99] ${
+                  estado === op
+                    ? 'border-marca-oscuro bg-marca-menta-suave shadow-sm'
+                    : 'border-borde bg-superficie hover:-translate-y-0.5 hover:border-borde-fuerte hover:shadow-sm'
                 }`}
               >
                 <input
@@ -85,11 +90,11 @@ export function ActualizarLugar({ organizacion, historialInicial }: ActualizarLu
             value={nota}
             onChange={(e) => setNota(e.target.value)}
             placeholder="Ej. Fuimos el lunes y sacamos 3 camiones de basura."
-            className="w-full resize-y rounded-xl border border-borde-fuerte bg-superficie px-4 py-3 text-lg focus:border-marca-oscuro"
+            className="w-full resize-y rounded-xl border border-borde-fuerte bg-superficie px-4 py-3 text-lg transition-shadow focus:border-marca-oscuro focus:shadow-md"
           />
         </div>
 
-        <label className="inline-flex min-h-[56px] cursor-pointer items-center gap-3 self-start rounded-xl border border-marca-oscuro bg-superficie px-6 text-lg font-semibold text-marca-oscuro hover:bg-marca-menta-suave has-[:focus-visible]:outline has-[:focus-visible]:outline-[3px] has-[:focus-visible]:outline-marca-verde">
+        <label className="inline-flex min-h-[56px] cursor-pointer items-center gap-3 self-start rounded-xl border border-marca-oscuro bg-superficie px-6 text-lg font-semibold text-marca-oscuro btn-bounce hover:bg-marca-menta-suave has-[:focus-visible]:outline has-[:focus-visible]:outline-[3px] has-[:focus-visible]:outline-marca-verde">
           <ImagePlus className="h-6 w-6" aria-hidden="true" />
           {conFoto ? 'Foto elegida' : 'Subir foto del antes o después'}
           <input
@@ -107,12 +112,12 @@ export function ActualizarLugar({ organizacion, historialInicial }: ActualizarLu
         <button
           type="submit"
           disabled={!estado}
-          className="inline-flex min-h-[56px] items-center self-start rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white hover:bg-marca-oscuro-hover disabled:cursor-not-allowed disabled:bg-sin-dato"
+          className="inline-flex min-h-[56px] items-center self-start rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white shadow-sm btn-bounce hover:bg-marca-oscuro-hover disabled:cursor-not-allowed disabled:bg-sin-dato disabled:shadow-none disabled:hover:translate-y-0"
         >
           Publicar actualización
         </button>
         <p role="status" className="m-0 text-base font-semibold text-marca-oscuro">
-          {publicado ? 'Publicada en el bosquejo. Al recargar la página se pierde.' : ''}
+          {publicado && <span className="animate-fade-in">Publicada en el bosquejo. Al recargar la página se pierde.</span>}
         </p>
       </form>
 

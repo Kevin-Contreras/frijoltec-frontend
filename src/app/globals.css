@@ -170,6 +170,24 @@ h1, h2, h3, h4 {
   transform: translateY(0px) scale(0.98);
 }
 
+/* Onda del lugar seleccionado en el mapa SVG */
+@keyframes mapaPulso {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.mapa-pulso {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: mapaPulso 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
 /* Respeta preferencia de reducción de movimiento */
 @media (prefers-reduced-motion: reduce) {
   *,

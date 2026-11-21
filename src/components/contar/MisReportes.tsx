@@ -1,5 +1,6 @@
 import type { EstadoReporte, ReporteLocal } from '@/types/lugar';
 import type { ReporteBackend } from '@/lib/api';
+import { Reveal } from '@/components/ui/Reveal';
 
 const TEXTO_ESTADO: Record<EstadoReporte | string, string> = {
   si_hay_basura: 'Sí, hay basura',
@@ -25,8 +26,10 @@ export function MisReportes({ reportes, reportesComunidad = [] }: MisReportesPro
             Lo que ya contaste ({reportes.length})
           </h2>
           <ul className="m-0 flex list-none flex-col gap-3 p-0">
-            {reportes.map((r) => (
-              <li key={r.id} className="rounded-xl border border-borde bg-superficie px-5 py-4">
+            {reportes.map((r, i) => (
+              <li key={r.id}>
+              <Reveal animation="fade-up" delay={Math.min(i * 60, 360)} duration={500}>
+              <div className="rounded-xl border border-borde bg-superficie px-5 py-4 card-interactive hover:border-marca-verde/40">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="rounded-full bg-marca-menta px-3 py-1 text-base font-semibold text-marca-oscuro">
                     {TEXTO_ESTADO[r.estado] || r.estado}
@@ -37,6 +40,8 @@ export function MisReportes({ reportes, reportesComunidad = [] }: MisReportesPro
                 </div>
                 <p className="mt-2 mb-0 line-clamp-1 text-lg text-marca-oscuro">{r.lugarNombre}</p>
                 {r.notas && <p className="mt-1 mb-0 text-base italic text-texto-secundario">“{r.notas}”</p>}
+              </div>
+              </Reveal>
               </li>
             ))}
           </ul>
@@ -49,8 +54,10 @@ export function MisReportes({ reportes, reportesComunidad = [] }: MisReportesPro
             Reportes verificados en campo ({reportesComunidad.length})
           </h2>
           <ul className="m-0 flex list-none flex-col gap-3 p-0">
-            {reportesComunidad.map((r) => (
-              <li key={r.id} className="rounded-xl border border-borde bg-superficie px-5 py-4">
+            {reportesComunidad.map((r, i) => (
+              <li key={r.id}>
+              <Reveal animation="fade-up" delay={Math.min(i * 60, 360)} duration={500}>
+              <div className="rounded-xl border border-borde bg-superficie px-5 py-4 card-interactive hover:border-marca-verde/40">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="rounded-full bg-marca-menta px-3 py-1 text-base font-semibold text-marca-oscuro">
                     {TEXTO_ESTADO[r.resultado] || r.resultado}
@@ -67,6 +74,8 @@ export function MisReportes({ reportes, reportesComunidad = [] }: MisReportesPro
                     ))}
                   </div>
                 )}
+              </div>
+              </Reveal>
               </li>
             ))}
           </ul>

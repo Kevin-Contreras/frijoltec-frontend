@@ -12,7 +12,7 @@ interface MapaLugarSeleccionadoProps {
 /** Columna izquierda del formulario: mapa con zoom + datos básicos del lugar elegido. */
 export function MapaLugarSeleccionado({ lugares, lugar }: MapaLugarSeleccionadoProps) {
   return (
-    <div className="font-marca">
+    <div className="font-marca animate-scale-up">
       <MapaGuatemalaZoom lugares={lugares} seleccionadoId={lugar.id} />
 
       <div className="mt-5 flex flex-wrap gap-3">

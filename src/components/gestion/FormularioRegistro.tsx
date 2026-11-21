@@ -6,7 +6,7 @@ import { Check } from 'lucide-react';
 import { TIPOS_ORGANIZACION, type TipoOrganizacion } from '@/lib/gestion-ejemplo';
 
 const campo =
-  'min-h-[56px] w-full rounded-xl border border-borde-fuerte bg-superficie px-4 text-lg text-marca-oscuro focus:border-marca-oscuro';
+  'min-h-[56px] w-full rounded-xl border border-borde-fuerte bg-superficie px-4 text-lg text-marca-oscuro transition-shadow focus:border-marca-oscuro focus:shadow-md';
 const etiqueta = 'mb-2 block text-lg font-semibold text-marca-oscuro';
 
 /** BOSQUEJO: el formulario no envía nada, solo muestra la pantalla de "recibido". */
@@ -16,8 +16,11 @@ export function FormularioRegistro({ departamentos }: { departamentos: string[] 
 
   if (enviado) {
     return (
-      <div className="rounded-[20px] border border-borde bg-superficie px-6 py-10 text-center">
-        <span className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-marca-menta text-marca-oscuro">
+      <div className="rounded-[20px] border border-borde bg-superficie px-6 py-10 text-center shadow-sm animate-scale-up">
+        <span
+          className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-marca-menta text-marca-oscuro animate-pop"
+          style={{ animationDelay: '250ms', animationFillMode: 'backwards' }}
+        >
           <Check className="h-9 w-9" aria-hidden="true" />
         </span>
         <h2 className="mb-3 font-marca text-3xl font-bold text-marca-oscuro tracking-normal">Recibimos tu solicitud</h2>
@@ -27,7 +30,7 @@ export function FormularioRegistro({ departamentos }: { departamentos: string[] 
         </p>
         <Link
           href="/panel"
-          className="inline-flex min-h-[56px] items-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white hover:bg-marca-oscuro-hover"
+          className="inline-flex min-h-[56px] items-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white shadow-sm btn-bounce hover:bg-marca-oscuro-hover"
         >
           Ver cómo se ve el panel (ejemplo)
         </Link>
@@ -41,7 +44,7 @@ export function FormularioRegistro({ departamentos }: { departamentos: string[] 
         e.preventDefault();
         setEnviado(true);
       }}
-      className="flex flex-col gap-7 rounded-[20px] border border-borde bg-superficie p-6 sm:p-8"
+      className="flex flex-col gap-7 rounded-[20px] border border-borde bg-superficie p-6 shadow-sm sm:p-8 animate-fade-in-up"
     >
       <fieldset className="m-0 border-0 p-0">
         <legend className={`${etiqueta} p-0`}>¿Qué tipo de organización es?</legend>
@@ -49,8 +52,10 @@ export function FormularioRegistro({ departamentos }: { departamentos: string[] 
           {(Object.keys(TIPOS_ORGANIZACION) as TipoOrganizacion[]).map((t) => (
             <label
               key={t}
-              className={`flex min-h-[60px] cursor-pointer items-center gap-4 rounded-xl border px-5 text-lg font-semibold text-marca-oscuro ${
-                tipo === t ? 'border-marca-oscuro bg-marca-menta-suave' : 'border-borde bg-superficie'
+              className={`flex min-h-[60px] cursor-pointer items-center gap-4 rounded-xl border px-5 text-lg font-semibold text-marca-oscuro transition-all duration-200 active:scale-[0.99] ${
+                tipo === t
+                  ? 'border-marca-oscuro bg-marca-menta-suave shadow-sm'
+                  : 'border-borde bg-superficie hover:-translate-y-0.5 hover:border-borde-fuerte hover:shadow-sm'
               }`}
             >
               <input
@@ -119,7 +124,7 @@ export function FormularioRegistro({ departamentos }: { departamentos: string[] 
 
       <button
         type="submit"
-        className="inline-flex min-h-[56px] items-center self-start rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white hover:bg-marca-oscuro-hover"
+        className="inline-flex min-h-[56px] items-center self-start rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white shadow-sm btn-bounce hover:bg-marca-oscuro-hover"
       >
         Enviar solicitud
       </button>

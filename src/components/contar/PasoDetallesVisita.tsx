@@ -21,12 +21,13 @@ export function hoyISO(): string {
 }
 
 const campo =
-  'w-full rounded-xl border border-borde-fuerte bg-superficie px-4 text-lg text-marca-oscuro focus:border-marca-oscuro';
+  'w-full rounded-xl border border-borde-fuerte bg-superficie px-4 text-lg text-marca-oscuro transition-shadow focus:border-marca-oscuro focus:shadow-md';
 
 /** Paso 2: cuándo fue, comentario y contacto (opcionales). */
 export function PasoDetallesVisita(props: PasoDetallesVisitaProps) {
   return (
     <form
+      className="animate-fade-in-up"
       onSubmit={(e) => {
         e.preventDefault();
         props.onEnviar();
@@ -70,7 +71,11 @@ export function PasoDetallesVisita(props: PasoDetallesVisitaProps) {
         className={`${campo} mb-7 min-h-[60px]`}
       />
 
-      <label className="mb-8 flex cursor-pointer items-start gap-4 rounded-xl border border-borde bg-superficie px-5 py-4 text-marca-oscuro">
+      <label
+        className={`mb-8 flex cursor-pointer items-start gap-4 rounded-xl border px-5 py-4 text-marca-oscuro transition-all duration-200 ${
+          props.avisar ? 'border-marca-oscuro bg-marca-menta-suave' : 'border-borde bg-superficie hover:border-borde-fuerte'
+        }`}
+      >
         <input
           type="checkbox"
           checked={props.avisar}
@@ -89,13 +94,13 @@ export function PasoDetallesVisita(props: PasoDetallesVisitaProps) {
         <button
           type="button"
           onClick={props.onAtras}
-          className="inline-flex min-h-[56px] items-center rounded-xl border border-marca-oscuro bg-superficie px-6 text-xl font-semibold text-marca-oscuro hover:bg-marca-menta-suave"
+          className="inline-flex min-h-[56px] items-center rounded-xl border border-marca-oscuro bg-superficie px-6 text-xl font-semibold text-marca-oscuro btn-bounce hover:bg-marca-menta-suave"
         >
           Atrás
         </button>
         <button
           type="submit"
-          className="inline-flex min-h-[56px] items-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white hover:bg-marca-oscuro-hover"
+          className="inline-flex min-h-[56px] items-center rounded-xl bg-marca-oscuro px-6 text-xl font-bold text-white shadow-sm btn-bounce hover:bg-marca-oscuro-hover"
         >
           Enviar
         </button>

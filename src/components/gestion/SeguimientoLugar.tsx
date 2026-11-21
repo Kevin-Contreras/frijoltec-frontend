@@ -7,7 +7,10 @@ export function SeguimientoLugar({ lugarId }: { lugarId: string }) {
   const historial = getHistorialVista(lugarId);
 
   return (
-    <section aria-labelledby="titulo-seguimiento" className="rounded-[20px] border border-borde bg-superficie p-6">
+    <section
+      aria-labelledby="titulo-seguimiento"
+      className="rounded-[20px] border border-borde bg-superficie p-6 shadow-sm transition-all duration-300 hover:border-marca-verde/40 hover:shadow-md"
+    >
       <div className="mb-4 flex flex-wrap items-center justify-between gap-2">
         <h2 id="titulo-seguimiento" className="m-0 font-marca text-2xl font-bold text-marca-oscuro tracking-normal">
           ¿Quién lo está atendiendo?
